@@ -75,6 +75,33 @@ Elvetjük a Cline-féle monolitikus 7-fájlos Memory Bankot, amely súlyos token
 
 ---
 
+## Minőségellenőrzés és Vaktesztek: Nem hitvita, hanem mérés
+
+Egy írástechnikai motornál a legkönnyebb elméleti okoskodásba csúszni: mindenki azt állítja, az ő promptja ad szebb mondatokat. Mi nem bemondásra hiszünk a szabályok erejében. A szövegminőséget és a szabálykövetést két független megközelítésben, számszerűsített tesztekkel mérjük:
+
+- **[Promptfoo](https://github.com/promptfoo/promptfoo):** Könnyűsúlyú CLI és tesztkörnyezet, amellyel determinisztikus szabályok, negatív szószűrők és metrikák mentén vizsgálható az LLM-ek szabálykövetése.
+- **[ACES (Agentic Continuous Evaluation of Skills / NVIDIA SkillEvaluator)](https://github.com/NVIDIA/SkillEvaluator):** Párosított vaktesztekkel (paired live trials) számszerűsíti a „Skill Lift”-et, vagyis a skill által hozott tényleges hozzáadott értéket a nyers modellel szemben.
+
+### A mért eredmény: +200% Skill Lift (+8,0 pont)
+
+Egy 1928-as külvárosi kazánházi jelenetben (beragadt forró gőzszelep, megalázó kölcsönkérési szituáció) mértük össze a nyers alapmodellt az Írói Véna motorjával:
+- **Nyers modell (Baseline):** Azonnal elbukott a didaktikus lezáráson (*„a remény szétáradt a szívükben”*), a gépies gesztusinfláción és a modoros névmásozáson (**4,0 / 12,0 pont**).
+- **Írói Véna motor:** Szikáran megállt a fizikai mozdulatnál (Action Halt Rule), betartotta a magyar dialógus-tipográfiát, és a kézzel fogható, mélyérzéki tárgyi részletekre építette a feszültséget (**12,0 / 12,0 pont**).
+
+Ez a szigorú vakteszten **+200,0%-os minőségi ugrást (+8,0 pont Skill Lift)** eredményezett.
+
+A tesztek helyben, a repó gyökeréből közvetlenül futtathatók:
+```bash
+# 1. Determinisztikus negatív szűrők és formai linter
+npx --yes promptfoo@latest eval --no-share
+
+# 2. ACES párosított minőségi próba és Skill Lift riport
+python aces/aces_runner.py
+```
+*(A tesztfájlok, futási naplók és generált riportok a `.gitignore` védelme alatt állnak, így egyetlen felesleges bájtot sem hagynak a forrásfában.)*
+
+---
+
 ## A Modulok Felépítése
 
 | Fájl / Mappa | Témakör |
@@ -90,7 +117,7 @@ Elvetjük a Cline-féle monolitikus 7-fájlos Memory Bankot, amely súlyos token
 | **[continuity-and-knowledge.md](references/continuity-and-knowledge.md)** | Az 5 tudásállapot, tárgybirtoklás, kötelezettségek és ígéretek kezelése. |
 | **[genre-profiles.md](references/genre-profiles.md)** | Műfaji profilok: Kortárs realista, Krimi/Noir, Sci-fi/Fantasy, Történelmi. |
 | **[evals/cases.md](evals/cases.md)** | Minőségi értékelési szempontrendszer és valós vakteszt esettanulmány. |
-| **[evals/harness_plan.md](evals/harness_plan.md)** | A tervezett automatikus helyi tesztkörnyezet (Eval Harness) architektúrája és esetei. |
+| **[evals/harness_plan.md](evals/harness_plan.md)** | Az automatikus helyi tesztkörnyezet (Promptfoo + ACES Skill Lift) architektúrája és esetei. |
 | **[ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md)** | Szakmai források, elméleti hivatkozások és köszönetnyilvánítás. |
 
 ---

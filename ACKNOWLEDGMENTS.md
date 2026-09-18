@@ -24,7 +24,11 @@ A keretrendszer kialakításához az alábbi szakmai források, elméleti munká
 - **Kétszintű memóriatopológia:** A fegyelmezett, kétszintű staféta-architektúra a Cline / Roo-Code csapat által kidolgozott monolitikus *Memory Bank* koncepciójának egy karcsúsított, kifejezetten regényírókra és token-takarékosságra optimalizált alternatívája.
 - **Agent Skill szabvány:** [skills.sh](https://skills.sh) v1 specifikáció, valamint a Cursor és Claude Code ágens-integrációs irányelvei.
 
+## 4. Tesztelési és értékelési eszközök
+- **[Promptfoo](https://github.com/promptfoo/promptfoo):** Könnyűsúlyú CLI és tesztkörnyezet, amellyel determinisztikus szabályok, negatív szószűrők és metrikák mentén vizsgálható az LLM-ek szabálykövetése.
+- **[ACES (Agentic Continuous Evaluation of Skills / NVIDIA SkillEvaluator)](https://github.com/NVIDIA/SkillEvaluator):** Párosított vaktesztekkel (paired live trials) számszerűsíti a „Skill Lift”-et, vagyis a skill által hozott tényleges hozzáadott értéket a nyers modellel szemben.
+
 ---
 
-## 4. Jogi és licencnyilatkozat
+## 5. Jogi és licencnyilatkozat
 A repóban található saját fejlesztésű útmutatók, szabályrendszerek és sablonok az MIT Licenc hatálya alá tartoznak. A hivatkozott elméleti források, kutatások és nyílt forráskódú projektek az eredeti szerzők szellemi tulajdonát képezik, hivatkozásuk a jóhiszemű szakmai forrásmegjelölés (fair attribution) céljából történik.

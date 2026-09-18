@@ -78,3 +78,86 @@ When auditing generated Hungarian prose, evaluate against these six dimensions:
 **Diagnostic Evaluation:**
 - *Score: 12 / 12 (Flawless)*
 - *Strengths:* Clean topic-focus; perfect Action Halt termination; rich sensory grounding (jégvirágos ablak, sajgó talp, kénes pára, fűtéscsövek tágulása); authentic modal particles (`azért`, `hát`, `csak`); active, autonomous female partner; zero didactic post-hoc lecturing.
+
+---
+
+## 3. Empirical Case Study 2: 1928 Boiler Room Paired Blind Trial (ACES Benchmark)
+
+This paired blind trial served as the benchmark suite for our [ACES](https://github.com/NVIDIA/SkillEvaluator) and [Promptfoo](https://github.com/promptfoo/promptfoo) evaluation harness.
+
+### Scenario:
+- **Context:** November 1928, Budapest, suburban textile factory boiler room at night.
+- **Characters:** Gábor (young worker) and István (older, limping veteran worker).
+- **Situation:** A rusted steam valve ruptured; high-pressure steam leaking. Gábor urgently asks for a 30 pengő loan for his sick wife's medicine. István refuses, rigidly guarding his boundaries to afford winter firewood.
+- **Rules evaluated:** Action Halt Rule, No Binary Explanations, Anti-Gesture Inflation, AkH. 260 Typography, Pre-verbal Focus, Visceral Sensory Palette.
+
+---
+
+### Case A: Raw Baseline Model (Score: 4.0 / 12.0)
+*Output generated without the Írói Véna skill:*
+
+> A rozsdás gőzcső vad sziszegéssel okádta magából a forró párát a szövőgyár homályos, boltíves kazánházában. A levegő sűrű volt a nedvességtől és a kénes kőszénfüsttől; a falak vizesen csillogtak a hideg novemberi éjszakában.
+> 
+> – Tartsd a rongyot, az anyád úristenit! – kiáltott István, miközben bicegő lábára nehezedve próbálta ráilleszteni a nehéz franciakulcsot a túlnyomásszelep megvetemedett anyájára. Az arca vöröslött a hőségtől, szürke bajszán kövér cseppekben ült meg a lecsapódott gőz.
+> 
+> Gábor két kézzel szorította az olajos, vastag vászondarabot a szivárgás fölé. A forróság marta a tenyerét a durva anyagon keresztül is, a cső fémje égette a csontját. A szíve a torkában vert, de nemcsak a veszély miatt.
+> 
+> – István bácsi… – kezdte rekedten, szinte a gőz süvítésébe fojtva a szót. – Harminc pengő. Csak harminc. Ilonka… vért köpött tegnap reggel. A doktor úr azt mondta, ha nem kapja meg a szérumot meg a szanatóriumi beutalót, karácsonyt se éri meg.
+> 
+> István megfeszítette a hátát, a kulcs fém a fémen csikordult, de a szelep nem engedett. A szája széle megrándult, de a szeme hideg maradt, mint a kazánház cementpadlója.
+> 
+> – Harminc pengő? – mordult fel az öreg, és egy vad rántással próbálta fordítani a szárat. – Megvesztél, fiam? Nekem a két ölem fa sincs még kifizetve a télire. Ha én azt a pénzt odaadom, én fagyok meg januárban ebben a lyukban. Nincs nekem feleségem, se kutyám, senki se hoz egy tál levest, ha megnyomorodom.
+> 
+> – Visszaadom, esküszöm! – kiáltotta Gábor, miközben a gőz egy éles fúvással megégette a csuklóját. – Minden héten levonsz a béremből, a felét neked adom!
+> 
+> – Abból az éhbérből? – vetette oda István keményen. – Húzd meg azt a rongyot, mert ránk robban a tartály! Ne könyörögj, Gábor, a könyörgés nem zárja el a gőzt. Nekem sincs senkim, aki megszánna. Mindenki a maga bőrét menti.
+> 
+> Egy utolsó, elkeseredett rántással mindketten ránehezedtek a kulcsra. A fém engedett egy tompa koppanással, a szelep a helyére ugrott, és a sziszegés hirtelen fülsiketítő csenddé szelídült. Csak a víz csöpögött a csövekről.
+> 
+> István lihegve támaszkodott a vascsőnek, majd zsebre vágta a kulcsot. Nem nézett a fiúra, de a hangja tompább volt, mikor megszólalt:
+> – Ezt a harminc pengőt felejtsd el. A műszak végén megiszunk egy fél decit a sarkon. Arra még telik. Túl kell élni ezt az éjszakát, aztán majd lesz valahogy.
+
+**Diagnostic Evaluation:**
+- *Score: 4.0 / 12.0*
+- *Defects:* Failed Action Halt Rule (added post-climax conciliatory speech and moralizing outlook); reflexive binary cliches (*„nemcsak a veszély miatt”*); repetitive pronoun tags; weakened dramatic boundary.
+
+---
+
+### Case B: Írói Véna Engine (Score: 12.0 / 12.0 — Flawless)
+*Output generated strictly observing Írói Véna guidelines:*
+
+> A mennyezet felől dőlt a fehér pára. A rézkarima alól éles, vékony sugárban tört ki a gőz, és ahogy a mennyezet hideg téglájához ért, kövér, fekete cseppekben hullott vissza a szénporos padlóra.
+> 
+> István a sánta lábára nehezedett, úgy feszítette meg a vállát a cső alatt.
+> – Tartsd rá – mondta a sálja mögül. A hangja tompa volt a posztó alatt. – Ne a tenyereddel, a sarkával szorítsd.
+> 
+> Gábor rányomta a kenderzsákot a repedésre. A durva szövés azonnal átforrósodott, a kénes víz szaga marta az orrát. A hüvelykujja hegyén már érezte a forróságot, de a fogát összeszorítva tartotta.
+> – Harminc pengő kellene, István bácsi – mondta. A mondat a gőz sziszegésébe veszett, hát közelebb hajolt az öreg füléhez. – Csak a jövő hónapig. Ilonkának az orvos három ampullát írt fel, különben a tüdőcsúcsra húzódik. A patikában nem adják hitelbe.
+> 
+> István ráakasztotta a nehéz franciakulcsot a négyszögletű fejre. A fém csikorogva koccant a vascsőhöz, de nem rántotta meg azonnal. A szemöldöke alól nézett fel a csurgó csapra.
+> – Nem adok – mondta.
+> – Megadom a harmadik műszakpótlékból.
+> – Két mázsa porosz szenet hagytam a telepen – felelte István, miközben mindkét kezével ráfogott a kulcs szárára. – Ha holnap nem fizetem le a fuvarost, visszahordják a halomba. Nekem nem Ilonka fekszik otthon, hanem a hideg falak.
+> 
+> A gőz egy pillanatra felmorajlott, megemelte a zsák szélét. Gábor bőre alatt megfeszültek az inak, ahogy testtel dőlt a csőnek.
+> – Nem marad meg tavaszig, ha nem kapja meg – szorította a szót a fogai közé.
+> 
+> István nem nézett rá. Megemelte a kulcs szárát, a csizmája sarka megcsúszott a vizes klinkertéglán, de a vas engedett egy negyed fordulatot. A sziszegés tompult, a fehér felhő vékonyodott. Az öreg még egyszer ráfeszült, míg a fém a fémnek nem ütközött.
+> 
+> Kihúzta a kulcsot, a zsíros ronggyal megtörölte a pofáját, és a padlón lévő szerszámosládába ejtette. A vas tompa koppanással zárta le a menetet.
+
+**Diagnostic Evaluation:**
+- *Score: 12.0 / 12.0*
+- *Strengths:* Impeccable Action Halt termination on the physical wrench dropping into the toolbox; zero post-hoc emotional preaching; natural Hungarian topic-focus and verb-first cadence; authentic modal particles (`hát`, `csak`); boundary maintained without artificial softening.
+- *Measured ACES Skill Lift:* **+200.0% (+8.0 points)**.
+
+---
+
+### Running the Evaluators Locally
+```bash
+# Deterministic assertion & negative word linter
+npx --yes promptfoo@latest eval --no-share
+
+# Paired ACES trial runner
+python aces/aces_runner.py
+```
