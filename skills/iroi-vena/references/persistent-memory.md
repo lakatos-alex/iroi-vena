@@ -38,10 +38,18 @@ To prevent token bloat, split-brain desynchronization, and memory amnesia, the s
 |                                                                             |
 |  TIER 2: DYNAMIC RELAY BATON (`docs/HANDOFF.md`)                             |
 |  - Compact, single-file active context baton (< 1,000 words)                |
-|  - Structured YAML Frontmatter for deterministic machine parsing            |
+|  - Structured YAML Frontmatter with referenced prior chapters               |
 |  - Active plot friction, exact chronological timestamp, physical custody    |
 |  - Immediate Next 3 Actions (zero startup ambiguity for next session)       |
 |  - Rewritten / compacted at the conclusion of every session (Memory Flush)  |
+|                                                                             |
+|                                     │                                       |
+|                                     ▼                                       |
+|                                                                             |
+|  TIER 2B: TURN-1 FAST-START BATON (`docs/START_NEXT_CHAT.md`)               |
+|  - Ultra-condensed ~150-word pasteable prompt for fresh chat sessions       |
+|  - Synthesizes current chapter, active friction, and immediate target       |
+|  - Automatically refreshed on session conclusion during Memory Flush        |
 |                                                                             |
 +─────────────────────────────────────────────────────────────────────────────+
 ```
@@ -137,11 +145,13 @@ Every agent invocation MUST execute through three contractual phases:
 2. **Template Bootstrap:**
    - If `${workspaceRoot}/docs/HANDOFF.md` does not exist, initialize it from `${skillRoot}/templates/HANDOFF.template.md`.
    - If `${workspaceRoot}/docs/STORY_BIBLE.md` does not exist, initialize it from `${skillRoot}/templates/STORY_BIBLE.template.md`.
-3. **Parse YAML Frontmatter:** Extract `current_chapter`, `canonical_date`, `active_characters`, and `invariant_constraints` from `HANDOFF.md`.
+   - If `${workspaceRoot}/docs/START_NEXT_CHAT.md` does not exist, initialize it from `${skillRoot}/templates/START_NEXT_CHAT.template.md`.
+3. **Parse YAML Frontmatter & Context Anchors:** Extract `current_chapter`, `canonical_date`, `active_characters`, and `invariant_constraints` from `HANDOFF.md`.
 4. **State Confirmation:** In reasoning traces, verify:
    - What is the current canonical date/time?
    - What physical limitations or injuries are active vs `[SUPERSEDED]`?
    - What items are currently held by whom?
+   - Which 2–3 prior chapters are historically referenced for current item custody or relationship status?
 
 ### Phase 2: Execution & Constraint Gate
 - Generate prose or plan chapters strictly constrained by the active state.
@@ -154,6 +164,7 @@ Before concluding any task that advances the story:
 3. **Advance Chapter & Timestamp:** Increment chapter count and update canonical time.
 4. **Update Immediate Next 3 Actions:** Re-populate the 3 concrete next steps for the subsequent agent session.
 5. **Update Story Bible (When Applicable):** Record new immutable facts or apply `[SUPERSEDED]` tags in `${workspaceRoot}/docs/STORY_BIBLE.md`.
+6. **Regenerate Fast-Start Baton:** Update `${workspaceRoot}/docs/START_NEXT_CHAT.md` using the latest chapter state, active physical friction, and immediate objective, providing a ready-to-paste prompt for turn 1 of the next session.
 
 ---
 
@@ -206,7 +217,7 @@ For distributed multi-device setups or private knowledge bases:
 - The agent checks for an environment variable `IROIVENA_MEMORY_DIR` or a config file `.iroi-vena.json` in `${workspaceRoot}`:
   ```json
   {
-    "memory_dir": "C:/Users/Alex/Documents/ObsidianVault/NovelCanon"
+    "memory_dir": "/path/to/my-novel-vault"
   }
   ```
 - If configured, the agent reads and writes `STORY_BIBLE.md` and `HANDOFF.md` from the specified external path while maintaining chapter drafts in the local workspace.

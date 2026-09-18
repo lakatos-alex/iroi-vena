@@ -57,16 +57,32 @@ These procedural constraints override default LLM generation tendencies:
    ALWAYS resolve and write memory records (`docs/HANDOFF.md`, `docs/STORY_BIBLE.md`) relative to the author's active workspace root (`${workspaceRoot}`), NEVER inside the skill's installation directory (`${skillRoot}`). Writing state into `${skillRoot}` causes total memory loss on skill updates (`npx skills update`).
 8. **Mandatory Memory Flush:**
    Never conclude a drafting or revision session without updating the persistent memory records (`${workspaceRoot}/docs/HANDOFF.md`, and `docs/STORY_BIBLE.md` when canon facts change). A chapter is not done until the state is recorded.
+9. **The Tangible Title Rule (Kézzelfogható címadás szabálya):**
+   Never generate abstract, didactic, or relative-clause titles (*„Aki…”, „Ami…”, „A ház, amely…”*, *„A megújuló remény”*). Chapter and scene titles must derive strictly from a tangible physical object, a concrete location, or an observable physical condition (e.g. *„A zöld papír”*, *„Szombat a hó mögött”*, *„A sárgaréz manométer”*).
 
 ---
 
 ## Procedural 4-Phase Workflow
 
 ### Phase 1: Memory Recovery & Context Setup
-1. **Bootstrap Hook:** Locate `${workspaceRoot}/docs/HANDOFF.md` and `${workspaceRoot}/docs/STORY_BIBLE.md` (or check external memory vault configured via `IROIVENA_MEMORY_DIR` or `.iroi-vena.json`).
-   - If missing in `${workspaceRoot}`, bootstrap immediately from templates: `${skillRoot}/templates/HANDOFF.template.md` -> `${workspaceRoot}/docs/HANDOFF.md` and `${skillRoot}/templates/STORY_BIBLE.template.md` -> `${workspaceRoot}/docs/STORY_BIBLE.md`.
+1. **Bootstrap Hook:** Locate `${workspaceRoot}/docs/HANDOFF.md`, `${workspaceRoot}/docs/STORY_BIBLE.md`, and `${workspaceRoot}/docs/START_NEXT_CHAT.md` (or check external memory vault configured via `IROIVENA_MEMORY_DIR` or `.iroi-vena.json`).
+   - If missing in `${workspaceRoot}`, bootstrap immediately from templates:
+     - `${skillRoot}/templates/HANDOFF.template.md` -> `${workspaceRoot}/docs/HANDOFF.md`
+     - `${skillRoot}/templates/STORY_BIBLE.template.md` -> `${workspaceRoot}/docs/STORY_BIBLE.md`
+     - `${skillRoot}/templates/START_NEXT_CHAT.template.md` -> `${workspaceRoot}/docs/START_NEXT_CHAT.md`
    - Parse the YAML frontmatter to extract current canonical date/time, active characters, physical custody, and invariant constraints.
-2. **Task & Friction:** Identify the scene objective, the focal character's boundaries, and the physical friction of the environment.
+2. **The 3-Chapter Lookback Hook:**
+   - Before drafting or planning new scenes, explicitly locate and cite:
+     a) The immediate preceding chapter.
+     b) **2–3 relevant earlier chapters** where the active items, physical conditions, promises, or T/V relationships originated or last shifted.
+   - Never treat an established capability or relationship step as a novel discovery.
+3. **Pre-Draft Contract (The 5 Scene Anchors):**
+   Before generating prose, verify and lock in:
+   - *Anchor 1 (Chronology & Climate):* Exact date, time of day, and physical weather/temperature resistance.
+   - *Anchor 2 (Physical Labor / Work):* What concrete manual/physical task occupies the characters' hands during the scene?
+   - *Anchor 3 (Address Register):* Who addresses whom with `tegezés` or `magázás`, and does a third party's presence impose formal address?
+   - *Anchor 4 (Independent Boundaries):* What is the focal character's non-negotiable limit in this scene? Where does someone say NO or push back?
+   - *Anchor 5 (Custody of Tangibles):* Where are critical physical items located right now (which pocket, bag, shelf)?
 
 ### Phase 2: Drafting in Hungarian Thought Units
 1. Draft directly into native Hungarian syntax (never translate an English mental outline).
@@ -78,8 +94,9 @@ These procedural constraints override default LLM generation tendencies:
 1. **Pass 1 — Story & Causality:** Did choices cause the outcome? Are injuries, tools, and secrets maintained without retroactive leakage? Verify anti-belief inertia (`[SUPERSEDED]` tags).
 2. **Pass 2 — Hungarian Syntax & Restraint:** Read dialogue aloud. Are speech tags lowercase? Are periods omitted before tags? Are personal pronouns stripped? Are all binary explanations eliminated?
 3. **Pass 3 — Typography & Morphology:** Verify dialogue dashes (`–`), quotation marks (`„…”`), and proper name suffixation.
+4. **Pass 4 — Mechanical & Marker Linter:** Scan output for residual LLM drafting artifacts (`TODO`, `TBD`, placeholder tokens `[...]`, or cut-off generation fragments). Ensure dialogue dashes (`– `) are uniform and periods are stripped before lowercase speech tags.
 
 ### Phase 4: State Flush & Handoff
-1. **Memory Flush Hook:** Execute minimal-change writeback to `${workspaceRoot}/docs/HANDOFF.md` updating YAML frontmatter (`current_chapter`, `canonical_date`, `canonical_time`, `held_items`, and `next_3_actions`).
+1. **Memory Flush Hook:** Execute minimal-change writeback to `${workspaceRoot}/docs/HANDOFF.md` updating YAML frontmatter (`current_chapter`, `canonical_date`, `canonical_time`, `referenced_prior_chapters`, `held_items`, and `next_3_actions`).
 2. Record newly established permanent world facts, broken/repaired trust, and changed relationships in `${workspaceRoot}/docs/STORY_BIBLE.md`.
-3. Provide a concise, clear handoff summary for the next session.
+3. **Regenerate Fast-Start Baton:** Refresh `${workspaceRoot}/docs/START_NEXT_CHAT.md` using `${skillRoot}/templates/START_NEXT_CHAT.template.md`. Provide a single, ~100–150 word pasteable prompt containing the active status and immediate target for turn 1 of the next session.

@@ -81,3 +81,24 @@ Authentic romantic tension relies on mutual autonomy:
 - **Vulnerability is Not Helplessness:** Admitting pain, uncertainty, or exhaustion does not convert a character into a passive dependent.
 - **Competence Outside the Relationship:** A character's self-worth and capabilities must be visible in actions independent of the partner.
 - **Subtle Intimacy:** Closeness is established through shared work, quiet domestic observation, and restrained tactile specificity—not theatrical vows.
+
+---
+
+## 8. Tangible Chapter & Scene Titles (Kézzelfogható címadás szabálya)
+
+AI models have a notorious reflex to invent cliché, overly didactic, or abstract relative-clause titles.
+
+### Banned Title Patterns (Tiltott címsablonok):
+- **Relative clauses:** *„Aki mer, az nyer”*, *„Ami a sötétben rejtőzik”*, *„A ház, amely emlékezett”*.
+- **Thematic didacticism / melodrama:** *„A remény hajnala”*, *„Keserű könnyek között”*, *„Egyenlő lelkek szövetsége”*.
+- **Empty grand abstractions:** *„A végzet útján”*, *„Az új kezdet ígérete”*.
+
+### Master Standard: Concrete & Physical Grounding (Tárgyi és helyzeti fókusz):
+Derive chapter and scene titles strictly from a tangible object, an exact physical situation, or a concrete task:
+- *Good Examples:*
+  - *„A zöld papír”* (a specific envelope on a library shelf)
+  - *„Szombat a hó mögött”* (a weather condition confining characters to the house)
+  - *„A varrószoba”* (a physical domestic workspace)
+  - *„A sárgaréz manométer”* (a mechanical measuring gauge in the boiler room)
+  - *„Két vödör forró víz”* (the physical labor of caring for livestock in winter)
+

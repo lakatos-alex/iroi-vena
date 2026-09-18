@@ -24,5 +24,10 @@
     "skills/iroi-vena/references/character-and-trust.md",
     "skills/iroi-vena/references/continuity-and-knowledge.md",
     "skills/iroi-vena/references/genre-profiles.md"
+  ],
+  "templates": [
+    "skills/iroi-vena/templates/HANDOFF.template.md",
+    "skills/iroi-vena/templates/STORY_BIBLE.template.md",
+    "skills/iroi-vena/templates/START_NEXT_CHAT.template.md"
   ]
 }

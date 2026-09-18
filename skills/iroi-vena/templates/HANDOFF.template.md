@@ -5,6 +5,13 @@ story_title: "A Történet Címe"
 current_chapter: 1
 canonical_date: "1924-11-04"
 canonical_time: "08:30"
+referenced_prior_chapters:
+  - chapter: "Ch-00 (Előzmény)"
+    reason: "Közvetlen cselekményfolytatás és időrendi indulópont"
+  - chapter: "Ch-XX (Korábbi mérföldkő)"
+    reason: "Itt történt a kulcsfontosságú tárgy átadása vagy a tegezési/magázási megállapodás"
+  - chapter: "Ch-YY (Korábbi nyitott szál)"
+    reason: "A ma érvényesülő ígéret vagy fizikai állapot eredete"
 location: "Helyszín pontos megnevezése (pl. Kikötői raktárnegyed, 4-es móló)"
 active_characters:
   - name: "Főszereplő 1"

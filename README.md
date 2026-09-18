@@ -58,10 +58,10 @@ A regényprojektben kérd az ágenstől az `iroi-vena` skill használatát. Add 
 
 A skill négy munkaszakaszt ír elő:
 
-1. **Előkészítés:** a történetállapot és a szükséges referenciák beolvasása, a jelenet céljának és korlátainak tisztázása.
-2. **Írás:** magyar mondatvezetés, a szereplők döntéseire és a helyzet konkrét részleteire épülő próza.
-3. **Átdolgozás:** ok-okozat és folytonosság, nyelv és stílus, majd tipográfia ellenőrzése.
-4. **Átadás:** az aktuális állapot mentése, szükség esetén a kánon frissítése, a következő lépések rögzítése.
+1. **Előkészítés:** a történetállapot (`HANDOFF.md`, `STORY_BIBLE.md`) és a szükséges referenciák beolvasása, 3 fejezetes visszatekintés (3-Chapter Lookback Hook) a kontextusfrissességért, valamint az 5 Jelenet-Horgony (5 Scene Anchors: időjárás/fizikai ellenállás, munka, megszólítás, szereplői önállóság, tárgystátusz) rögzítése.
+2. **Írás:** magyar mondatvezetés, kézzelfogható fejezetcímek („Aki.../Ami...” típusú elvont klisék tiltása), a szereplők döntéseire és a helyzet konkrét részleteire épülő próza.
+3. **Átdolgozás:** ok-okozat és folytonosság, nyelv és stílus, tipográfia, valamint mechanikai és markerelemzés (tiltott szavak, klisék, megmaradt sabloncímkék ellenőrzése).
+4. **Átadás:** az aktuális állapot mentése, szükség esetén a kánon frissítése, a következő lépések rögzítése, valamint a következő csevegés indítását megkönnyítő Turn-1 gyorstöltő (`START_NEXT_CHAT.md`) legenerálása.
 
 Az alapértelmezett memóriahely a regényprojekt `docs/` mappája:
 
@@ -69,8 +69,9 @@ Az alapértelmezett memóriahely a regényprojekt `docs/` mappája:
 | :--- | :--- |
 | `docs/STORY_BIBLE.md` | Világszabályok, karakterek, kapcsolatok és szereplői tudás. Új kánontény vagy jelentős változás esetén frissül. |
 | `docs/HANDOFF.md` | Aktuális fejezet, történetbeli idő, helyszín, szereplők állapota, náluk lévő tárgyak és a következő három lépés. A történetet továbbvivő munka végén frissül. |
+| `docs/START_NEXT_CHAT.md` | Turn-1 gyorstöltő jegyzet (Fast-Start Baton), amellyel új csevegés indítható azonnali kontextus-helyreállítással. |
 
-Hiányzó fájloknál az ágens a [történetbiblia](skills/iroi-vena/templates/STORY_BIBLE.template.md) és az [átadási jegyzet](skills/iroi-vena/templates/HANDOFF.template.md) sablonjából indul. A sablonok mintaneveit, dátumait és eseményeit a saját történeted adataival kell kitölteni.
+Hiányzó fájloknál az ágens a [történetbiblia](skills/iroi-vena/templates/STORY_BIBLE.template.md), az [átadási jegyzet](skills/iroi-vena/templates/HANDOFF.template.md) vagy a [csevegésindító](skills/iroi-vena/templates/START_NEXT_CHAT.template.md) sablonjából indul. A sablonok mintaneveit, dátumait és eseményeit a saját történeted adataival kell kitölteni.
 
 A `HANDOFF.md` YAML-fejlécet használ. A memóriaprotokoll 1000 szó alatti aktív jegyzetet céloz meg; 1200 szó fölött tömörítést és a lezárt előzmények `docs/EDITORIAL_LOG.md` fájlba helyezését írja elő. A megváltozott korábbi állapotokat `[SUPERSEDED]` jelöléssel különíti el az érvényes tényektől.
 
@@ -96,6 +97,7 @@ A helyi `aces/aces_runner.py` előre elkészült szövegeket pontoz szólistákk
 | [skill.json](skill.json), [package.json](package.json) | Név, verzió, licenc és csomagleíró adatok. A `package.json` nem definiál függőségeket vagy futtatási parancsokat. |
 | [skills/iroi-vena/templates/HANDOFF.template.md](skills/iroi-vena/templates/HANDOFF.template.md) | Az aktuális történetállapot sablonja. |
 | [skills/iroi-vena/templates/STORY_BIBLE.template.md](skills/iroi-vena/templates/STORY_BIBLE.template.md) | Világ-, karakter-, kapcsolat- és kánonnyilvántartás. |
+| [skills/iroi-vena/templates/START_NEXT_CHAT.template.md](skills/iroi-vena/templates/START_NEXT_CHAT.template.md) | Turn-1 csevegésindító gyorshívó sablon (Fast-Start Baton). |
 | [skills/iroi-vena/references/persistent-memory.md](skills/iroi-vena/references/persistent-memory.md) | Memóriahelyek, állapotséma, frissítés és archiválás. |
 | [skills/iroi-vena/references/hungarian-prose.md](skills/iroi-vena/references/hungarian-prose.md) | Magyar mondatvezetés, nézőpont, ritmus és érzéki részletek. |
 | [skills/iroi-vena/references/hungarian-typography.md](skills/iroi-vena/references/hungarian-typography.md) | Párbeszéd-központozás, megszólítások és névragozás. |
