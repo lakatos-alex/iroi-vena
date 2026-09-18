@@ -8,7 +8,7 @@
 
 ---
 
-## A történet: Miért született meg ez a műhely?
+## A történet: Miért született meg ez a project?
 
 Az AI pocsékul ír. Legalábbis ha magára hagyod.
 
