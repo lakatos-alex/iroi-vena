@@ -36,7 +36,7 @@ To prevent token bloat, split-brain desynchronization, and memory amnesia, the s
 |                                     │                                       |
 |                                     ▼                                       |
 |                                                                             |
-|  TIER 2: DYNAMIC RELAY BATON (`docs/HANDOFF.md` or `CURRENT_STATE.md`)      |
+|  TIER 2: DYNAMIC RELAY BATON (`docs/HANDOFF.md`)                             |
 |  - Compact, single-file active context baton (< 1,000 words)                |
 |  - Structured YAML Frontmatter for deterministic machine parsing            |
 |  - Active plot friction, exact chronological timestamp, physical custody    |
@@ -130,9 +130,15 @@ Frontier reasoning models instantly register `[SUPERSEDED]` tags as hard negativ
 Every agent invocation MUST execute through three contractual phases:
 
 ### Phase 1: Bootstrap Hook (Pre-Execution Ingestion)
-1. **Locate State Files:** Locate `docs/HANDOFF.md` (or external memory directory).
-2. **Parse YAML Frontmatter:** Extract `current_chapter`, `canonical_date`, `active_characters`, and `invariant_constraints`.
-3. **State Confirmation:** In reasoning traces, verify:
+1. **Locate Memory Root:**
+   - Check if an external memory vault is configured via `IROIVENA_MEMORY_DIR` environment variable or `.iroi-vena.json` in `${workspaceRoot}`.
+   - Otherwise, the canonical memory location is `${workspaceRoot}/docs/`.
+   - **MANDATORY ISOLATION GUARD:** NEVER locate or create memory files inside the skill's installation directory (`${skillRoot}`). Memory files belong exclusively to the author's workspace.
+2. **Template Bootstrap:**
+   - If `${workspaceRoot}/docs/HANDOFF.md` does not exist, initialize it from `${skillRoot}/templates/HANDOFF.template.md`.
+   - If `${workspaceRoot}/docs/STORY_BIBLE.md` does not exist, initialize it from `${skillRoot}/templates/STORY_BIBLE.template.md`.
+3. **Parse YAML Frontmatter:** Extract `current_chapter`, `canonical_date`, `active_characters`, and `invariant_constraints` from `HANDOFF.md`.
+4. **State Confirmation:** In reasoning traces, verify:
    - What is the current canonical date/time?
    - What physical limitations or injuries are active vs `[SUPERSEDED]`?
    - What items are currently held by whom?
@@ -144,29 +150,66 @@ Every agent invocation MUST execute through three contractual phases:
 ### Phase 3: Memory Flush Hook (Mandatory Post-Execution Writeback)
 Before concluding any task that advances the story:
 1. **State Delta Calculation:** Identify new facts introduced, items transferred, wounds sustained or healed, and promises made.
-2. **Minimal-Change Writeback:** Update `docs/HANDOFF.md` using surgical diff edits. Do NOT delete untouched invariant sections.
+2. **Minimal-Change Writeback:** Update `${workspaceRoot}/docs/HANDOFF.md` using surgical diff edits. Do NOT delete untouched invariant sections.
 3. **Advance Chapter & Timestamp:** Increment chapter count and update canonical time.
 4. **Update Immediate Next 3 Actions:** Re-populate the 3 concrete next steps for the subsequent agent session.
+5. **Update Story Bible (When Applicable):** Record new immutable facts or apply `[SUPERSEDED]` tags in `${workspaceRoot}/docs/STORY_BIBLE.md`.
 
 ---
 
-## 6. Memory Topologies: In-Repo vs. External
+## 6. Memory Topologies & Update Protection
 
-The persistent memory system operates across two workspace configurations:
+### 6.1 The Workspace Isolation Contract (Skill Root vs. Workspace Root)
+Agents and tools execute within environments where skills are installed as plugins or dependencies. To ensure **zero state loss across skill updates (`npx skills update`, git pulls, or re-installations)**:
 
-### Configuration A: In-Repo Workspace (Standard)
-Memory files reside directly inside the project root:
-```text
-project-root/
-├── docs/
-│   ├── STORY_BIBLE.md          <- Permanent Canon & Trust Matrix
-│   ├── HANDOFF.md              <- Active Working Baton
-│   ├── WORKFLOW.md             <- Chapter Guidelines & Targets
-│   └── EDITORIAL_LOG.md        <- Append-only Compaction Archive
+```
++─────────────────────────────────────────────────────────────────────────────+
+|                        WORKSPACE ISOLATION TOPOLOGY                         |
++─────────────────────────────────────────────────────────────────────────────+
+|                                                                             |
+|  SKILL DIRECTORY (`${skillRoot}`) [READ-ONLY TO AGENTS]                     |
+|  - Installed at: `.cursor/skills/iroi-vena/` or `.agents/skills/...`         |
+|  - Contains: `SKILL.md`, `references/*.md`, `templates/*.template.md`       |
+|  - DANGER: This entire directory is replaced on `npx skills update`!        |
+|  - RULE: Agents must NEVER write story state into this directory.           |
+|                                                                             |
+|                                     │                                       |
+|                  Templates Copied On First Bootstrap                        |
+|                                     ▼                                       |
+|                                                                             |
+|  AUTHOR WORKSPACE (`${workspaceRoot}`) [PERSISTENT STORY DOMAIN]             |
+|  - The author's dedicated novel repository or creative workspace           |
+|  - Contains: `docs/HANDOFF.md`, `docs/STORY_BIBLE.md`, `chapters/*.md`      |
+|  - IMMUNITY: Completely unaffected by skill updates or upstream git pulls.   |
+|                                                                             |
++─────────────────────────────────────────────────────────────────────────────+
 ```
 
-### Configuration B: Out-of-Repo External Vault (Obsidian / Centralized)
-For distributed setups or private user journals:
-- The agent checks for an environment variable `IROIVENA_MEMORY_DIR` or a config key in `skill.json`.
-- If set (e.g., `C:/Users/Alex/Documents/ObsidianVault/Stories/MyNovel/`), the agent reads and writes `STORY_BIBLE.md` and `HANDOFF.md` from the specified external directory while editing prose in the local workspace.
-- If no local `docs/HANDOFF.md` exists and no external path is configured, the agent initializes a fresh `docs/HANDOFF.md` template during the Bootstrap Hook.
+### 6.2 Configuration Topologies
+
+#### Configuration A: In-Workspace Dedicated Story Repo (Standard)
+Memory files reside directly inside the author's project root:
+```text
+my-novel-workspace/
+├── docs/
+│   ├── STORY_BIBLE.md          <- Permanent Canon & Trust Matrix (Committed)
+│   ├── HANDOFF.md              <- Active Working Baton (Committed per chapter)
+│   └── EDITORIAL_LOG.md        <- Append-only Compaction Archive
+├── chapters/
+│   ├── ch01.md
+│   └── ch02.md
+└── .cursor/skills/iroi-vena/   <- Installed skill (Read-Only)
+```
+
+#### Configuration B: Out-of-Repo External Vault (Obsidian / Centralized)
+For distributed multi-device setups or private knowledge bases:
+- The agent checks for an environment variable `IROIVENA_MEMORY_DIR` or a config file `.iroi-vena.json` in `${workspaceRoot}`:
+  ```json
+  {
+    "memory_dir": "C:/Users/Alex/Documents/ObsidianVault/NovelCanon"
+  }
+  ```
+- If configured, the agent reads and writes `STORY_BIBLE.md` and `HANDOFF.md` from the specified external path while maintaining chapter drafts in the local workspace.
+
+#### Configuration C: Direct Skill Clone Guard
+If a developer or contributor clones the `iroi-vena` repository directly (e.g. to develop features or evals), live memory files (`docs/*.md`, `.story/`) are excluded via `.gitignore`. However, **users should never write their novels inside the cloned engine repository**—always create a separate workspace for creative projects.

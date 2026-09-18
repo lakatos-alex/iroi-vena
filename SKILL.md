@@ -19,7 +19,7 @@ A complete, production-grade craft and memory system for generating, revising, a
 
 ## Modular Reference Router (On-Demand Loading)
 
-Load the specific module required for the current task. Do not load the entire library into context at once:
+Load the specific module required for the current task using your file reading tool (e.g. `view_file` or `read_file`) before drafting or planning. Do not load the entire library into context at once:
 
 | Craft Domain | Reference Module | When to Load? |
 | :--- | :--- | :--- |
@@ -49,15 +49,19 @@ These procedural constraints override default LLM generation tendencies:
    NEVER use: `hirtelen`, `egyszerre csak`, `valahogy`, `mintha`, `furcsa módon`. Introduce surprises through direct physical or acoustic interruption in the sentence focus.
 6. **Strict Hungarian Information Packaging:**
    Respect the pre-verbal focus position. Invert verbal prefixes behind the verb under negation or focus. Omit redundant personal pronouns (`ő`, `ők`); disambiguate third-person subjects through concrete physical action, not clumsy stock phrases (*„a lány”, „a férfi”, „az előbbi”*).
-7. **Mandatory Memory Flush:**
-   Never conclude a drafting or revision session without updating the persistent memory records (`CURRENT_STATE.md` / `STORY_BIBLE.md`). A chapter is not done until the state is recorded.
+7. **Workspace Isolation & Memory Immunity:**
+   ALWAYS resolve and write memory records (`docs/HANDOFF.md`, `docs/STORY_BIBLE.md`) relative to the author's active workspace root (`${workspaceRoot}`), NEVER inside the skill's installation directory (`${skillRoot}`). Writing state into `${skillRoot}` causes total memory loss on skill updates (`npx skills update`).
+8. **Mandatory Memory Flush:**
+   Never conclude a drafting or revision session without updating the persistent memory records (`${workspaceRoot}/docs/HANDOFF.md`, and `docs/STORY_BIBLE.md` when canon facts change). A chapter is not done until the state is recorded.
 
 ---
 
 ## Procedural 4-Phase Workflow
 
 ### Phase 1: Memory Recovery & Context Setup
-1. **Bootstrap Hook:** Locate `docs/HANDOFF.md` (or `CURRENT_STATE.md`) and `docs/STORY_BIBLE.md` (or check external memory vault). Parse the YAML frontmatter to extract current canonical date/time, active characters, physical custody, and invariant constraints.
+1. **Bootstrap Hook:** Locate `${workspaceRoot}/docs/HANDOFF.md` and `${workspaceRoot}/docs/STORY_BIBLE.md` (or check external memory vault configured via `IROIVENA_MEMORY_DIR` or `.iroi-vena.json`).
+   - If missing in `${workspaceRoot}`, bootstrap immediately from templates: `${skillRoot}/templates/HANDOFF.template.md` -> `${workspaceRoot}/docs/HANDOFF.md` and `${skillRoot}/templates/STORY_BIBLE.template.md` -> `${workspaceRoot}/docs/STORY_BIBLE.md`.
+   - Parse the YAML frontmatter to extract current canonical date/time, active characters, physical custody, and invariant constraints.
 2. **Task & Friction:** Identify the scene objective, the focal character's boundaries, and the physical friction of the environment.
 
 ### Phase 2: Drafting in Hungarian Thought Units
@@ -72,6 +76,6 @@ These procedural constraints override default LLM generation tendencies:
 3. **Pass 3 — Typography & Morphology:** Verify dialogue dashes (`–`), quotation marks (`„…”`), and proper name suffixation.
 
 ### Phase 4: State Flush & Handoff
-1. **Memory Flush Hook:** Execute minimal-change writeback to `docs/HANDOFF.md` updating YAML frontmatter (`current_chapter`, `canonical_date`, `canonical_time`, `held_items`, and `next_3_actions`).
-2. Record newly established permanent world facts, broken/repaired trust, and changed relationships in `STORY_BIBLE.md`.
+1. **Memory Flush Hook:** Execute minimal-change writeback to `${workspaceRoot}/docs/HANDOFF.md` updating YAML frontmatter (`current_chapter`, `canonical_date`, `canonical_time`, `held_items`, and `next_3_actions`).
+2. Record newly established permanent world facts, broken/repaired trust, and changed relationships in `${workspaceRoot}/docs/STORY_BIBLE.md`.
 3. Provide a concise, clear handoff summary for the next session.
