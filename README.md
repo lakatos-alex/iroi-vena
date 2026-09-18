@@ -1,129 +1,120 @@
 # Írói Véna (`iroi-vena`)
 
-> **Kézműves magyar prózatechnika, dramaturgia és AI-natív perzisztens emlékezet regényíróknak.**
-> Készítette: **Lakatos Alex** · [lakatosalex.hu](https://lakatosalex.hu)
+Magyar próza írásához, átdolgozásához és hosszabb történetek folytonosságának követéséhez készült ágens-skill. Mondatvezetési, párbeszéd- és jelenetépítési útmutatókat, valamint történetbiblia- és átadási sablonokat tartalmaz.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills.sh](https://img.shields.io/badge/skills.sh-iroi--vena-blue.svg)](https://skills.sh)
+Készítette: **Lakatos Alex** · [lakatosalex.hu](https://lakatosalex.hu) · [MIT licenc](LICENSE)
 
----
+## Miért készült?
 
-## A történet: Miért született meg ez a project?
+Saját regényírás közben két visszatérő problémával találkoztam: a modellek magyar szövegében sok volt a modoros fordulat, néhány fejezet után pedig elvesztek a korábban rögzített részletek. Külön fájlokba gyűjtöttem a kánont, követni kezdtem a szereplők állapotát, és írástechnikai szabályokat adtam az ágensnek. Az Írói Véna ezekből a tapasztalatokból nőtt ki.
 
-Az AI pocsékul ír. Legalábbis ha magára hagyod.
+## Mit tartalmaz?
 
-Aki próbált már regényt, fejezetet vagy akár csak egy hosszabb párbeszédet íratni vele magyarul, pontosan ismeri a tüneteket:
-- **Az anglicizmusok és tükörfordítások fogsága:** A mondatok nem magyarul lélegeznek. Minden bekezdésben ott kísért az elhagyhatatlan alany (*„Ő odalépett, és ő ránézett”*), a modoros körülírások (*„a lány”, „a férfi”, „az előbbi”*), és a passzív, nyakatekert szerkezetek.
-- **A kényszeres szentimentalizmus:** A szereplők folyamatosan tikkelnek (*felsóhajtanak, bólintanak, összehúzzák a szemöldöküket*), a narrátor pedig képtelen megállni a cselekvésnél: minden mozdulat után elmagyarázza, mit kell érezni, és a jelenet végén didaktikus kiselőadást tart a szerelem, a remény és az emberi lélek nagyságáról.
-- **A memóriasodródás (Context Drift):** A harmadik fejezetre az AI elfelejti a tegnap szerzett sebeket, a kimondott titkokat, és ha két szereplő összevész, három bekezdés múlva reflexből kibékíti őket, megölve minden valódi feszültséget.
+- **Magyar mondatvezetés:** topik és fókusz, igekötők helye, névmáshasználat, mondatritmus és érzéki részletek.
+- **Párbeszéd:** magyar központozás, tegezés és magázás, módosítószók, beszélőváltás, SMS és cset megjelenítése.
+- **Jelenetépítés:** szereplői célok, a környezetből adódó akadályok, jelenet és összefoglalás váltása, a túlmagyarázott érzelmek és ismétlődő gesztusok visszafogása.
+- **Karakterek és kapcsolatok:** önálló döntések, személyes határok, a bizalom négy dimenziója és a jóvátétel következményei.
+- **Folytonosság:** ki mit tud, kinél van egy tárgy, mely sérülések, ígéretek és kötelezettségek vannak még érvényben.
+- **Műfaji útmutatók:** kortárs realista próza, krimi és noir, sci-fi és fantasy, történelmi történetek.
 
-Ez a projekt saját igényből született: regényt akartam írni, de a modellek pár fejezet után menetrendszerűen szétcsúsztak, a mondataik pedig tele voltak modoros fordulatokkal. Hogy ne kelljen mindent elölről kezdeni, külön fájlokba gyűjtöttem a kánont, állapotkövetést vezettem be a fejezetek között, és szigorú írástechnikai szabályokat adtam a modellnek.
+Az egyik központi szabály az „Állj meg a cselekvésnél” (Action Halt Rule): ha egy mozdulat már hordozza a jelenet érzelmi jelentését, ne kövesse azt magyarázó tanulság. A skill több visszatérő fordulatot kifejezetten tilt, és a tárgyi részletekre épülő, visszafogott elbeszélést részesíti előnyben.
 
-Az **Írói Véna** ennek a munkának a tapasztalatait foglalja össze: természetesebb magyar mondatvezetés, kevesebb AI-klisé és megbízható memóriakezelés a fejezetek között.
+A belépési pont a [SKILL.md](SKILL.md). Az ágens innen választja ki és olvassa be a feladathoz szükséges referenciákat. Az utasítások nagyrészt angolul íródtak, magyar példákkal; a készülő próza nyelve magyar.
 
----
+A csomag Markdown-útmutatókból, sablonokból és leíró metaadatokból áll. A memóriafájlok létrehozását, olvasását és frissítését az ágens végzi az utasítások alapján. Ezekhez nincs külön futó szolgáltatás vagy automatikus ellenőrző program a verziókezelt csomagban.
 
-## A két pillér és a hibrid architektúra
+## Előfeltételek
 
-A legújabb kutatások és benchmarkok (NeurIPS / ACL) igazolják: még a legfejlettebb reasoning modellek belső rejtett tere (latent space) is döntően angol-centrikus. A nem-angol procedurális utasítások belső fordítási vargabetűt (translation detour) és gyengébb szabálykövetést okoznak.
+A használathoz szükséges:
 
-Ezért az **Írói Véna** tudatos **hibrid architektúrára** épül:
-- **Vezérlési és logikai réteg (English-Pivoted Control):** A memóriasémák, invariáns negatív kényszerek, állapotgépek és életciklus-kampók tiszta, szigorú angol nyelven kényszerítik ki a modell maximális fegyelmét.
-- **Magyar irodalmi motor (Native Hungarian Craft):** A generált szöveg, a szintaxis (fókusz–topik, igekötő-inverzió), a dialógus-tipográfia és a mélyérzéki szókincs közvetlenül autentikus magyar nyelven lélegzik.
+- Olyan AI-ágens, amely be tudja olvasni a `SKILL.md` fájlt és a hivatkozott modulokat, és képes magyar szöveggel dolgozni.
+- A történetállapot fájlos kezeléséhez olvasási és írási hozzáférés a saját regényprojektedhez.
+- A választott ágenshez szükséges modellhozzáférés. A projekt nem ír elő konkrét szolgáltatót vagy modellt, és saját API-kulcsot sem kezel.
 
-### 1. A Magyar Prózatechnikai Motor (Craft Engine)
-Nem sablonos írói tanácsok gyűjteménye, hanem szigorú mérnöki szabályrendszer az LLM-nek:
-- **Topik–fókusz szórend és igekötő-inverzió:** A magyar mondatban a hangsúlyos állítás a ragozott ige elé kerül, tagadásnál és fókusznál az igekötő kötelezően elválik.
-- **Névmástakarékosság:** A személyrag azonosítja az alanyt; a harmadik személyű kétértelműséget cselekvéssel oldja fel a szöveg, nem modoros címkékkel.
-- **Action Halt Rule (Állj meg a cselekvésnél!):** Ha egy mozdulat vagy átadott tárgy hordozta az érzelmet, a narráció megáll. Nincs utólagos elmagyarázás, és szigorúan tilos a bináris *„nem azért..., hanem...”* fordulat.
-- **Élő magyar partikulák:** A feszültséget a módosítószók finomhangolása (`hát`, `csak`, `ugyan`, `már`, `azért`) adja a dialógusokban.
-- **Mélyérzékelés (Sensory Palette):** Nem pusztán vizuális leírások, hanem taktilis súrlódás, akusztikai terek, szagok és belső testi (viszcerális) feszültség.
+A parancssori telepítéshez Node.js, npm és az `npx` parancs, Git, valamint a csomag és a repó letöltéséhez hálózati hozzáférés kell. A repó nem rögzít minimális Node.js-verziót; a telepítő követelményeit a [skills CLI dokumentációja](https://github.com/vercel-labs/skills) tartalmazza.
 
-### 2. Kétszintű AI-Natív Perzisztens Emlékezet (Two-Tier Memory)
-Elvetjük a Cline-féle monolitikus 7-fájlos Memory Bankot, amely súlyos token-adót (4-12 ezer token turnönként) és kontextus-rothadást okoz. Helyette egy fegyelmezett, kétszintű memóriamodellt használunk:
-- **Tier 1 — Invariáns Kánon (`docs/STORY_BIBLE.md`):** A világ fizikai törvényei, karakterdossziék, a bizalom 4 rétege és az episztemikus tudásháló (ki mit tud / hisz tévesen).
-- **Tier 2 — Dinamikus Állapot-Staféta (`docs/HANDOFF.md`):** Egyetlen szigorúan kötött terjedelmű (< 1000 szó), YAML-frontmattes átadási fájl a pillanatnyi fizikai korlátokról, birtokolt tárgyakról és a következő 3 konkrét lépésről.
-- **Anti-Belief-Inertia & Invalidation:** Explicit `[SUPERSEDED]` jelölések és kötelező lezárási mentés (Memory Flush Hook) a múltbeli sebek és állapotok túlracionalizálása ellen.
-- **Workspace-Izoláció és Frissítésvédelem:** A memóriafájlok (`docs/HANDOFF.md`, `docs/STORY_BIBLE.md`) kizárólag az író saját regénykönyvtárában jönnek létre az első futtatáskor a mellékelt sablonokból (`templates/*.template.md`). A skill frissítése (`npx skills update`) így garantáltan soha nem írja felül a történeted állapotát.
+Kézi bemásoláshoz nincs szükség Node.js-re. A skill használata nem igényel Pythont, adatbázist vagy buildlépést. A saját kézirat Git-verziókezelése választható.
 
----
+## Telepítés
 
-## Telepítés és Munkafolyamat (Hol írjam a regényt?)
+Hozz létre külön munkakönyvtárat a regénynek, és abban telepítsd a skillt:
 
-> [!IMPORTANT]
-> **Ez a repó egy ESZKÖZKÉSZLET (Skill / Motor), NEM maga a regényed könyvtára!**
-> Ha klónozod ezt a repót (`git clone`), azt csak akkor tedd, ha magát az Írói Véna motort, a prózatechnikai szabályokat vagy a tesztkörnyezetet kívánod fejleszteni.
-> **Soha ne ebben a repóban kezdj el regényt írni!** Ha ide írod a fejezeteidet, a későbbi `git pull origin main` parancsok vagy motorfrissítések konfliktust okozhatnak.
-
-### A helyes regényírói munkafolyamat:
-
-1. **Hozz létre egy saját, független projektet a könyvednek:**
-   ```bash
-   mkdir a-hollok-varosa
-   cd a-hollok-varosa
-   git init
-   ```
-2. **Telepítsd be az Írói Vénát skillként a regényed alá:**
-   - A hivatalos `skills` CLI segítségével (Cursor, Codex, Claude Code):
-     ```bash
-     npx skills add lakatos-alex/iroi-vena --skill iroi-vena
-     ```
-   - Vagy manuálisan másold be a könyvtárat a projekted `.cursor/skills/iroi-vena/` vagy `.agents/skills/iroi-vena/` mappájába.
-3. **Kezdj el dolgozni az ágenssel a saját projektedben:**
-   - Az ágens az első indításkor (Bootstrap Hook) automatikusan létrehozza a `docs/HANDOFF.md` és `docs/STORY_BIBLE.md` fájlokat a regényed gyökerében a skill sablonjaiból (`templates/*.template.md`).
-   - A könyved és az emlékezete a saját git verziókezelésed alatt fejlődik, miközben a skillt bármikor frissítheted anélkül, hogy a történetállapot sérülne.
-
----
-
-## Minőségellenőrzés és Vaktesztek: Nem hitvita, hanem mérés
-
-Egy írástechnikai motornál a legkönnyebb elméleti okoskodásba csúszni: mindenki azt állítja, az ő promptja ad szebb mondatokat. Mi nem bemondásra hiszünk a szabályok erejében. A szövegminőséget és a szabálykövetést két független megközelítésben, számszerűsített tesztekkel mérjük:
-
-- **[Promptfoo](https://github.com/promptfoo/promptfoo):** Könnyűsúlyú CLI és tesztkörnyezet, amellyel determinisztikus szabályok, negatív szószűrők és metrikák mentén vizsgálható az LLM-ek szabálykövetése.
-- **[ACES (Agentic Continuous Evaluation of Skills / NVIDIA SkillEvaluator)](https://github.com/NVIDIA/SkillEvaluator):** Párosított vaktesztekkel (paired live trials) számszerűsíti a „Skill Lift”-et, vagyis a skill által hozott tényleges hozzáadott értéket a nyers modellel szemben.
-
-### A mért eredmény: +200% Skill Lift (+8,0 pont)
-
-Egy 1928-as külvárosi kazánházi jelenetben (beragadt forró gőzszelep, megalázó kölcsönkérési szituáció) mértük össze a nyers alapmodellt az Írói Véna motorjával:
-- **Nyers modell (Baseline):** Azonnal elbukott a didaktikus lezáráson (*„a remény szétáradt a szívükben”*), a gépies gesztusinfláción és a modoros névmásozáson (**4,0 / 12,0 pont**).
-- **Írói Véna motor:** Szikáran megállt a fizikai mozdulatnál (Action Halt Rule), betartotta a magyar dialógus-tipográfiát, és a kézzel fogható, mélyérzéki tárgyi részletekre építette a feszültséget (**12,0 / 12,0 pont**).
-
-Ez a szigorú vakteszten **+200,0%-os minőségi ugrást (+8,0 pont Skill Lift)** eredményezett.
-
-A tesztek helyben, a repó gyökeréből közvetlenül futtathatók:
 ```bash
-# 1. Determinisztikus negatív szűrők és formai linter
-npx --yes promptfoo@latest eval --no-share
-
-# 2. ACES párosított minőségi próba és Skill Lift riport
-python aces/aces_runner.py
+mkdir a-hollok-varosa
+cd a-hollok-varosa
+npx skills add lakatos-alex/iroi-vena --skill iroi-vena
 ```
-*(A tesztfájlok, futási naplók és generált riportok a `.gitignore` védelme alatt állnak, így egyetlen felesleges bájtot sem hagynak a forrásfában.)*
 
----
+A telepítőben válaszd ki az általad használt ágenst és a projekt szintű telepítést. A skills CLI többek között a Cursor, a Codex és a Claude Code telepítési helyeit is kezeli.
 
-## A Modulok Felépítése
+Kézi telepítésnél másold a `SKILL.md`, a `references/` és a `templates/` fájljait az ágens által olvasott skillkönyvtárba, az eredeti mappaszerkezet megtartásával. A projektben leírt helyek például `.agents/skills/iroi-vena/` és `.cursor/skills/iroi-vena/`; a megfelelő helyet az ágens határozza meg.
 
-| Fájl / Mappa | Témakör |
+A regény fejezeteit és állapotfájljait a saját munkakönyvtáradban tartsd, a skill telepítési mappáján kívül. Így a skill és a kézirat külön frissíthető.
+
+## Használat és történetállapot
+
+A regényprojektben kérd az ágenstől az `iroi-vena` skill használatát. Add meg a történet alaphelyzetét, műfaját, szereplőit és az aktuális feladatot; meglévő kéziratnál jelöld meg a mérvadó fájlokat is.
+
+A skill négy munkaszakaszt ír elő:
+
+1. **Előkészítés:** a történetállapot és a szükséges referenciák beolvasása, a jelenet céljának és korlátainak tisztázása.
+2. **Írás:** magyar mondatvezetés, a szereplők döntéseire és a helyzet konkrét részleteire épülő próza.
+3. **Átdolgozás:** ok-okozat és folytonosság, nyelv és stílus, majd tipográfia ellenőrzése.
+4. **Átadás:** az aktuális állapot mentése, szükség esetén a kánon frissítése, a következő lépések rögzítése.
+
+Az alapértelmezett memóriahely a regényprojekt `docs/` mappája:
+
+| Fájl | Tartalom és frissítés |
 | :--- | :--- |
-| **[SKILL.md](SKILL.md)** | A központi router, negatív kényszerek és a 4-fázisú munkafolyamat (English-pivoted). |
-| **[templates/HANDOFF.template.md](templates/HANDOFF.template.md)** | Azonnal inicializálható dinamikus staféta sablon (YAML frontmatterrel). |
-| **[templates/STORY_BIBLE.template.md](templates/STORY_BIBLE.template.md)** | Kánon történetbiblia és bizalmi mátrix sablon. |
-| **[persistent-memory.md](references/persistent-memory.md)** | Kétszintű perzisztens memóriaprotokoll, YAML-séma, anti-belief-inertia (angol specifikáció). |
-| **[hungarian-prose.md](references/hungarian-prose.md)** | Topik–fókusz mondattan, igekötők, névmástakarékosság, mélyérzékelés. |
-| **[hungarian-typography.md](references/hungarian-typography.md)** | Párbeszéd-gondolatjelek, aszimmetrikus megszólítások, SMS és cset-formátum. |
-| **[scene-craft.md](references/scene-craft.md)** | Fizikai súrlódás a jelenetben, jelenet vs. összefoglalás, gesztusinfláció irtása. |
-| **[character-and-trust.md](references/character-and-trust.md)** | A bizalom 4 rétege, gondoskodás mint munka vs. kontroll, határok védelme. |
-| **[continuity-and-knowledge.md](references/continuity-and-knowledge.md)** | Az 5 tudásállapot, tárgybirtoklás, kötelezettségek és ígéretek kezelése. |
-| **[genre-profiles.md](references/genre-profiles.md)** | Műfaji profilok: Kortárs realista, Krimi/Noir, Sci-fi/Fantasy, Történelmi. |
-| **[evals/cases.md](evals/cases.md)** | Minőségi értékelési szempontrendszer és valós vakteszt esettanulmány. |
-| **[evals/harness_plan.md](evals/harness_plan.md)** | Az automatikus helyi tesztkörnyezet (Promptfoo + ACES Skill Lift) architektúrája és esetei. |
-| **[ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md)** | Szakmai források, elméleti hivatkozások és köszönetnyilvánítás. |
+| `docs/STORY_BIBLE.md` | Világszabályok, karakterek, kapcsolatok és szereplői tudás. Új kánontény vagy jelentős változás esetén frissül. |
+| `docs/HANDOFF.md` | Aktuális fejezet, történetbeli idő, helyszín, szereplők állapota, náluk lévő tárgyak és a következő három lépés. A történetet továbbvivő munka végén frissül. |
 
----
+Hiányzó fájloknál az ágens a [történetbiblia](templates/STORY_BIBLE.template.md) és az [átadási jegyzet](templates/HANDOFF.template.md) sablonjából indul. A sablonok mintaneveit, dátumait és eseményeit a saját történeted adataival kell kitölteni.
 
-## Licenc, Források és Szerzőség
+A `HANDOFF.md` YAML-fejlécet használ. A memóriaprotokoll 1000 szó alatti aktív jegyzetet céloz meg; 1200 szó fölött tömörítést és a lezárt előzmények `docs/EDITORIAL_LOG.md` fájlba helyezését írja elő. A megváltozott korábbi állapotokat `[SUPERSEDED]` jelöléssel különíti el az érvényes tényektől.
 
-- Készítette: **Lakatos Alex** ([lakatosalex.hu](https://lakatosalex.hu))
-- Licenc: **[MIT License](LICENSE)**. Szabadon használható, beépíthető és továbbfejleszthető mind egyéni írói projektekben, mind kereskedelmi rendszerekben.
-- Források és köszönetnyilvánítás: A felhasznált elméleti munkák, nyelvészeti források és inspirációt nyújtó nyílt forráskódú módszertanok részletes listája az **[ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md)** dokumentumban található.
+A [memóriaprotokoll](references/persistent-memory.md) külső könyvtár használatát is leírja az `IROIVENA_MEMORY_DIR` környezeti változóval vagy a projekt gyökerében lévő `.iroi-vena.json` fájl `memory_dir` mezőjével. Ezt is az ágensnek kell értelmeznie; külön konfigurációbetöltő nincs a csomagban.
+
+A fájlok mentését és tartalmát érdemes minden fejezet után ellenőrizni. A leírt munkafolyamat követése a használt ágens és modell szabálykövetésétől függ.
+
+## Értékelés és tesztelés
+
+Az [evals/cases.md](evals/cases.md) hat szempontú, összesen 12 pontos értékelési táblázatot és összehasonlító prózapéldákat tartalmaz. A szempontok a mondatvezetést, az alanykezelést, az érzéki részleteket, az elbeszélői visszafogottságot, a párbeszédet és a tipográfiát vizsgálják.
+
+Az 1928-as kazánházi példához a dokumentum 4/12 és 12/12 pontot közöl. A különbség az adott pontozásban 8 pont. Az ebből számolt 200%-os relatív növekedés nem tekinthető az irodalmi minőség általános javulási arányának. A verziókezelt anyag nem tartalmazza a megismétléshez szükséges teljes modell-, generálási és értékelési naplót.
+
+Az [evals/harness_plan.md](evals/harness_plan.md) a Promptfoo és az ACES használatára épülő tesztelési tervet írja le, többek között kánon-visszakeresési, állapotfrissítési és fájlmegőrzési esetekkel. A benne szereplő futtatási leírások helyi környezetre vonatkoznak: a `promptfooconfig.yaml`, az `aces/` és a futási eredmények ki vannak zárva a verziókezelésből. **Friss klónozásból a leírt tesztparancsok nem futtathatók a hiányzó fájlok pótlása nélkül.**
+
+A helyi `aces/aces_runner.py` előre elkészült szövegeket pontoz szólistákkal és reguláris kifejezésekkel. Nem hív modellt, és önmagában nem végez élő párosított vaktesztet. A helyi Promptfoo-konfiguráció szintén kész szövegeken ellenőriz feltételeket. Ezek a szűrők egyes szabálysértések jelzésére használhatók; az értelmezést és az irodalmi szerkesztést nem fedik le.
+
+## Fájlok
+
+| Fájl vagy mappa | Szerep |
+| :--- | :--- |
+| [SKILL.md](SKILL.md) | Belépési pont, modulválasztás, közös szabályok és munkafolyamat. |
+| [skill.json](skill.json), [package.json](package.json) | Név, verzió, licenc és csomagleíró adatok. A `package.json` nem definiál függőségeket vagy futtatási parancsokat. |
+| [templates/HANDOFF.template.md](templates/HANDOFF.template.md) | Az aktuális történetállapot sablonja. |
+| [templates/STORY_BIBLE.template.md](templates/STORY_BIBLE.template.md) | Világ-, karakter-, kapcsolat- és kánonnyilvántartás. |
+| [references/persistent-memory.md](references/persistent-memory.md) | Memóriahelyek, állapotséma, frissítés és archiválás. |
+| [references/hungarian-prose.md](references/hungarian-prose.md) | Magyar mondatvezetés, nézőpont, ritmus és érzéki részletek. |
+| [references/hungarian-typography.md](references/hungarian-typography.md) | Párbeszéd-központozás, megszólítások és névragozás. |
+| [references/scene-craft.md](references/scene-craft.md) | Jelenetépítés, tempó, környezet és szereplői önállóság. |
+| [references/character-and-trust.md](references/character-and-trust.md) | Karaktercélok, határok és bizalmi viszonyok. |
+| [references/continuity-and-knowledge.md](references/continuity-and-knowledge.md) | Tudás, tárgyak, sérülések és kötelezettségek követése. |
+| [references/genre-profiles.md](references/genre-profiles.md) | Műfaji szempontok és magyar példák. |
+| [evals/cases.md](evals/cases.md) | Értékelési szempontok és prózapéldák. |
+| [evals/harness_plan.md](evals/harness_plan.md) | A helyi tesztkörnyezet terve és dokumentált esetei. |
+| [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) | Források és köszönetnyilvánítás. |
+
+## Fejlesztés és licenc
+
+A skill útmutatóinak, sablonjainak vagy értékelési módszerének módosításához klónozd a repót:
+
+```bash
+git clone https://github.com/lakatos-alex/iroi-vena.git
+cd iroi-vena
+```
+
+A verziókezelt csomaghoz nincs buildlépés vagy mellékelt automatikus tesztfuttató. Módosításkor ellenőrizd a relatív hivatkozásokat, a sablonok és a memóriaséma összhangját, valamint azt, hogy a példák megfelelnek-e a leírt szabályoknak.
+
+A projekt [MIT licenc](LICENSE) alatt használható és továbbfejleszthető. A felhasznált szakmai forrásokat és inspirációkat az [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) sorolja fel.
