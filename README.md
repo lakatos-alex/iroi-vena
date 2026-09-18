@@ -91,10 +91,12 @@ Elvetjük a Cline-féle monolitikus 7-fájlos Memory Bankot, amely súlyos token
 | **[genre-profiles.md](references/genre-profiles.md)** | Műfaji profilok: Kortárs realista, Krimi/Noir, Sci-fi/Fantasy, Történelmi. |
 | **[evals/cases.md](evals/cases.md)** | Minőségi értékelési szempontrendszer és valós vakteszt esettanulmány. |
 | **[evals/harness_plan.md](evals/harness_plan.md)** | A tervezett automatikus helyi tesztkörnyezet (Eval Harness) architektúrája és esetei. |
+| **[ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md)** | Szakmai források, elméleti hivatkozások és köszönetnyilvánítás. |
 
 ---
 
-## Licenc és Szerzőség
+## Licenc, Források és Szerzőség
 
-Készítette: **Lakatos Alex** ([lakatosalex.hu](https://lakatosalex.hu))
-Licenc: **MIT License**. Szabadon használható, beépíthető és továbbfejleszthető mind egyéni írói projektekben, mind kereskedelmi rendszerekben.
+- Készítette: **Lakatos Alex** ([lakatosalex.hu](https://lakatosalex.hu))
+- Licenc: **[MIT License](LICENSE)**. Szabadon használható, beépíthető és továbbfejleszthető mind egyéni írói projektekben, mind kereskedelmi rendszerekben.
+- Források és köszönetnyilvánítás: A felhasznált elméleti munkák, nyelvészeti források és inspirációt nyújtó nyílt forráskódú módszertanok részletes listája az **[ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md)** dokumentumban található.
