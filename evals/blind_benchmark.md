@@ -1,7 +1,7 @@
-# Dupla-Vak Prózateszt és Modell-Összehasonlító Benchmark (2026)
+# Dupla-Vak Prózateszt és Modell-Összehasonlító Benchmark
 # Double-Blind Literary Benchmark & Model Comparison
 
-Ez a dokumentum a 2026 szeptemberében lefolytatott, 4-ágenses, kettős vak (double-blind) empirikus prózateszt teljes jegyzőkönyvét, kísérleti leírását, pontszámait és reprodukálható szövegmintáit tartalmazza.
+Ez a dokumentum a 4-ágenses, kettős vak (double-blind) empirikus prózateszt teljes jegyzőkönyvét, kísérleti leírását, pontszámait és reprodukálható szövegmintáit tartalmazza.
 
 A vizsgálat célja annak mérése volt, hogy az `iroi-vena` írástechnikai és prózaszerkesztési szabályrendszere milyen mértékben képes javítani a generált magyar nyelvű széppróza minőségét:
 1. egy **erős, frontier modellen** (`pro`), illetve

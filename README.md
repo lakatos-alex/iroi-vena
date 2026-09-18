@@ -83,7 +83,7 @@ A fájlok mentését és tartalmát érdemes minden fejezet után ellenőrizni. 
 
 A repó empirikus minőségbiztosítási rendszert, 5 dimenziós értékelési rubrikát és egy teljes, reprodukálható **kettős vak (double-blind) ágens-benchmarkot** tartalmaz.
 
-A 2026-os benchmark során egy erős frontier modell (`pro`) és egy költséghatékony igásló modell (`flash`) írt meg egy fojtott, fizikai munkára és anyagi feszültségre épülő vasúti műhelyjelenetet (dízelaggregátor-javítás éjszaka, esőben, indulás előtt), natív prompttal és az `iroi-vena` szabályrendszerével. A négy anonimizált szövegmintát két független vak bíráló ágens (`pro` és `flash` bírók) pontozta szigorú 50 pontos szakmai rubrika alapján, a pozíciós és hosszúsági torzítások (length/verbosity bias) teljes kizárásával.
+A benchmark során egy erős frontier modell (`pro`) és egy költséghatékony igásló modell (`flash`) írt meg egy fojtott, fizikai munkára és anyagi feszültségre épülő vasúti műhelyjelenetet (dízelaggregátor-javítás éjszaka, esőben, indulás előtt), natív prompttal és az `iroi-vena` szabályrendszerével. A négy anonimizált szövegmintát két független vak bíráló ágens (`pro` és `flash` bírók) pontozta szigorú 50 pontos szakmai rubrika alapján, a pozíciós és hosszúsági torzítások (length/verbosity bias) teljes kizárásával.
 
 ### A kettős vak teszt eredményei (két független vak bíró átlagában):
 
@@ -100,7 +100,7 @@ A 2026-os benchmark során egy erős frontier modell (`pro`) és egy költségha
 - **A költséghatékony modellek fegyelmezése:** A gyors `flash` modell az `iroi-vena` szigorú cselekvési fegyelmét (Action Halt Rule, AkH. 260 szerinti párbeszéd, tiszta cselekvés) követve 45,75 ponttal (91,5%) a mezőny abszolút győztese lett, megelőzve az unkorlátozott frontier modellt is.
 - **100%-os bírálói konszenzus:** Mindkét független vak bíró egymástól elszigetelve pontosan ugyanazt a sorrendet állapította meg minden páros mérkőzésen.
 
-A részletes kísérleti leírás, az anonim kódkulcs, a két bíró részletes diagnózisa és mind a 4 nyers szövegminta teljes terjedelmében az [evals/blind_benchmark_2026.md](evals/blind_benchmark_2026.md) fájlban, az esettanulmányok pedig az [evals/cases.md](evals/cases.md) dokumentumban találhatók.
+A részletes kísérleti leírás, az anonim kódkulcs, a két bíró részletes diagnózisa és mind a 4 nyers szövegminta teljes terjedelmében az [evals/blind_benchmark.md](evals/blind_benchmark.md) fájlban, az esettanulmányok pedig az [evals/cases.md](evals/cases.md) dokumentumban találhatók.
 
 ## Fájlok
 
@@ -119,7 +119,7 @@ A részletes kísérleti leírás, az anonim kódkulcs, a két bíró részletes
 | [skills/iroi-vena/references/continuity-and-knowledge.md](skills/iroi-vena/references/continuity-and-knowledge.md) | Tudás, tárgyak, sérülések és kötelezettségek követése. |
 | [skills/iroi-vena/references/genre-profiles.md](skills/iroi-vena/references/genre-profiles.md) | Műfaji szempontok és magyar példák. |
 | [evals/cases.md](evals/cases.md) | Az 5 dimenziós prózatechnikai rubrika és a vakteszt esettanulmányai. |
-| [evals/blind_benchmark_2026.md](evals/blind_benchmark_2026.md) | A 2026-os kettős vak prózateszt teljes jegyzőkönyve, ponttáblázatai és nyers mintái. |
+| [evals/blind_benchmark.md](evals/blind_benchmark.md) | A kettős vak prózateszt teljes jegyzőkönyve, ponttáblázatai és nyers mintái. |
 | [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) | Források és köszönetnyilvánítás. |
 
 ## Fejlesztés és licenc

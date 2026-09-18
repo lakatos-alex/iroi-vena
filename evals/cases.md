@@ -1,9 +1,9 @@
 # Minőségi Értékelés és Vakteszt Esettanulmányok
 # Quality Rubric & Blind Test Case Studies
 
-Ez a dokumentum a magyar nyelvű széppróza értékelésére szolgáló 5 dimenziós szakmai rubrikát, valamint a 2026-os kettős vak (double-blind) ágens-benchmark részletes összehasonlító esettanulmányait tartalmazza.
+Ez a dokumentum a magyar nyelvű széppróza értékelésére szolgáló 5 dimenziós szakmai rubrikát, valamint a kettős vak (double-blind) ágens-benchmark részletes összehasonlító esettanulmányait tartalmazza.
 
-A teljes kísérleti jegyzőkönyv, a leleplező kulcs, a két független bíró pontozása és a négy nyers prózaszöveg teljes terjedelmében az [evals/blind_benchmark_2026.md](blind_benchmark_2026.md) fájlban olvasható.
+A teljes kísérleti jegyzőkönyv, a leleplező kulcs, a két független bíró pontozása és a négy nyers prózaszöveg teljes terjedelmében az [evals/blind_benchmark.md](blind_benchmark.md) fájlban olvasható.
 
 ---
 
@@ -21,7 +21,7 @@ A kettős vak tesztelés során a független bírók minden szöveget az alábbi
 
 ---
 
-## 2. A 2026-os Kettős Vak Benchmark Összesített Eredményei
+## 2. A Kettős Vak Benchmark Összesített Eredményei
 
 A kísérletben egy erős frontier modell (`pro`) és egy költséghatékony modell (`flash`) írt meg egy nehéz jelenetet (éjszakai vasúti aggregátorszerelés hidegben, anyagi feszültséggel) natív állapotban és az `iroi-vena` szabályaival.
 
@@ -87,4 +87,4 @@ A skill szabályai (a Ganz-Jendrassik motor bontása, a hideg vizes betonon fekv
 ## 5. Dokumentáció és Teljes Adatkészlet
 
 A teljes kísérleti jegyzőkönyv, az anonimizált szövegek és a bírói részletes pontszámok elérhetők:
-- [evals/blind_benchmark_2026.md](blind_benchmark_2026.md)
+- [evals/blind_benchmark.md](blind_benchmark.md)
