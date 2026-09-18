@@ -9,7 +9,7 @@ This document provides qualitative and quantitative evaluation rubrics to benchm
 
 When auditing generated Hungarian prose, evaluate against these six dimensions:
 
-| Criterion | Failing Standard (0–1 pts) | Master Standard (2 pts) |
+| Criterion | Common Model Pitfall (0–1 pts) | Target Craft Standard (2 pts) |
 | :--- | :--- | :--- |
 | **1. Information Packaging (Topik–fókusz)** | Arbitrary word order; un-inverted prefixes under focus/negation; anglicized structure. | Strict pre-verbal focus; natural prefix inversion; sentence rhythm dictates dramatic stress. |
 | **2. Pronoun & Subject Economy** | Constant *„ő/ők”* stacking; repetitive *„a lány / a férfi / az előbbi”* crutches. | Verbs carry grammatical person; subjects identified through concrete physical action or names. |
@@ -48,8 +48,8 @@ When auditing generated Hungarian prose, evaluate against these six dimensions:
 
 ---
 
-### Case B: Írói Véna Engine (Master Standard)
-*Output generated strictly following the Írói Véna craft modules:*
+### Case B: With Írói Véna Guidelines
+*Output generated following the Írói Véna craft modules:*
 
 > A szürke hajnali fény alig derengett át a jégvirágos ablakon. A vastag gyapjútakaró alatt még tartotta magát a meleg, de a szoba levegője már csípett. A cserépkályha csendben hűlt a sarokban; a tegnapi parázs hamuvá szürkült. Klára fordult meg elsőként, a takarót az álláig húzva. A fésülködőasztalon még ott feküdt a tegnap talált vadgesztenye a borotvaecset mellett.
 >
@@ -76,8 +76,8 @@ When auditing generated Hungarian prose, evaluate against these six dimensions:
 > Dániel megfogta a hideg rézkereket, és megvárta, míg a ceruza sercegése elhallgat a papíron.
 
 **Diagnostic Evaluation:**
-- *Score: 12 / 12 (Flawless)*
-- *Strengths:* Clean topic-focus; perfect Action Halt termination; rich sensory grounding (jégvirágos ablak, sajgó talp, kénes pára, fűtéscsövek tágulása); authentic modal particles (`azért`, `hát`, `csak`); active, autonomous female partner; zero didactic post-hoc lecturing.
+- *Score: 12 / 12*
+- *Strengths:* Clean topic-focus; Action Halt termination; rich sensory grounding (jégvirágos ablak, sajgó talp, kénes pára, fűtéscsövek tágulása); authentic modal particles (`azért`, `hát`, `csak`); active, autonomous female partner; zero didactic post-hoc lecturing.
 
 ---
 
@@ -123,8 +123,8 @@ This paired blind trial served as the benchmark suite for our [ACES](https://git
 
 ---
 
-### Case B: Írói Véna Engine (Score: 12.0 / 12.0 — Flawless)
-*Output generated strictly observing Írói Véna guidelines:*
+### Case B: With Írói Véna Guidelines (Score: 12.0 / 12.0)
+*Output generated observing Írói Véna guidelines:*
 
 > A mennyezet felől dőlt a fehér pára. A rézkarima alól éles, vékony sugárban tört ki a gőz, és ahogy a mennyezet hideg téglájához ért, kövér, fekete cseppekben hullott vissza a szénporos padlóra.
 > 
@@ -148,7 +148,7 @@ This paired blind trial served as the benchmark suite for our [ACES](https://git
 
 **Diagnostic Evaluation:**
 - *Score: 12.0 / 12.0*
-- *Strengths:* Impeccable Action Halt termination on the physical wrench dropping into the toolbox; zero post-hoc emotional preaching; natural Hungarian topic-focus and verb-first cadence; authentic modal particles (`hát`, `csak`); boundary maintained without artificial softening.
+- *Strengths:* Clean Action Halt termination on the physical wrench dropping into the toolbox; zero post-hoc emotional preaching; natural Hungarian topic-focus and verb-first cadence; authentic modal particles (`hát`, `csak`); boundary maintained without artificial softening.
 - *Measured ACES Skill Lift:* **+200.0% (+8.0 points)**.
 
 ---

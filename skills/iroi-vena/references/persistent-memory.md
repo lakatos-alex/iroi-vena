@@ -1,18 +1,18 @@
-# AI-Native Persistent Memory & State Scaffolding
+# File-Based Story Memory & State Tracking
 
-This reference defines the formal, machine-verifiable persistent memory architecture for AI-assisted long-form narrative generation and complex serial storytelling. It provides the procedural specifications, state schemas, lifecycle hooks, and anti-drift contracts required to maintain immaculate continuity across arbitrary session boundaries.
+This reference describes a file-based memory workflow for long-form fiction projects. It outlines state schemas, handoff conventions, and lifecycle steps to help agents track narrative continuity across multiple chat sessions.
 
 ---
 
 ## 1. Architectural Motivation: Why Stateless Agents Fail
 
-Large Language Models (LLMs) and autonomous reasoning agents are fundamentally stateless. Extended context windows (128k–1M+ tokens) do not solve long-horizon continuity; in practice, unmanaged context expansion introduces **Context Rot**:
+Large Language Models (LLMs) and reasoning agents are stateless across sessions. Extended context windows do not automatically solve long-horizon continuity; unmanaged context growth introduces recurring issues:
 
-1. **Belief Inertia:** Reasoning models with high test-time compute often over-rationalize obsolete narrative states. If a character is injured in Chapter 2, the agent may hallucinate lingering physical limitations in Chapter 8 despite explicit recovery in Chapter 4, anchoring to salient historical tokens.
-2. **Epistemic Leakage:** Without hard knowledge partitioning, agents exhibit omniscient bleed—characters make decisions based on secrets revealed only in external viewpoints or private narrator commentary.
-3. **Premature Reconciliation:** Models exhibit strong conversational sycophancy and friction-aversion, reflexively resolving interpersonal conflicts within 2–3 paragraphs and collapsing long-term dramatic tension.
-4. **Context Tax & Attention Dilution ("Lost in the Middle"):** Naively injecting multi-thousand-word lore encyclopedias on every turn consumes 10–30% of the active token budget, dilutes attention weights, and degrades complex sentence-level instruction adherence by 10–15%.
-5. **Honor-System Writeback Failure:** Under cognitive load or tool exhaustion, agents consistently skip post-generation state persistence unless constrained by deterministic lifecycle gates.
+1. **Belief Inertia:** Reasoning models often over-rationalize obsolete narrative states. If a character is injured in Chapter 2, the agent may recall lingering physical limitations in Chapter 8 despite explicit recovery in Chapter 4, anchoring to salient historical tokens.
+2. **Epistemic Leakage:** Without clear knowledge tracking, agents exhibit omniscient bleed—characters make decisions based on secrets revealed only in external viewpoints or narrator commentary.
+3. **Premature Reconciliation:** Models often display conversational friction-aversion, reflexively resolving interpersonal conflicts within 2–3 paragraphs and collapsing long-term dramatic tension.
+4. **Attention Dilution ("Lost in the Middle"):** Injecting large lore files on every turn consumes token budget, dilutes attention weights, and can degrade instruction following.
+5. **Honor-System Writeback Failure:** Under cognitive load or tool exhaustion, agents tend to skip post-generation state persistence unless guided by structured workflow steps.
 
 ---
 
@@ -223,4 +223,4 @@ For distributed multi-device setups or private knowledge bases:
 - If configured, the agent reads and writes `STORY_BIBLE.md` and `HANDOFF.md` from the specified external path while maintaining chapter drafts in the local workspace.
 
 #### Configuration C: Direct Skill Clone Guard
-If a developer or contributor clones the `iroi-vena` repository directly (e.g. to develop features or evals), live memory files (`docs/*.md`, `.story/`) are excluded via `.gitignore`. However, **users should never write their novels inside the cloned engine repository**—always create a separate workspace for creative projects.
+If a developer or contributor clones the `iroi-vena` repository directly (e.g. to develop features or evals), live memory files (`docs/*.md`, `.story/`) are excluded via `.gitignore`. However, **users should not write their novels inside the cloned skill repository**—always create a separate workspace for creative projects.

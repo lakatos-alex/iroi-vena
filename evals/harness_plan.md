@@ -13,7 +13,7 @@ The evaluation architecture combines two industry-standard evaluation paradigms:
 1. **Zero Git Pollution:** All evaluation runs, traces, diff patches, and reports MUST output to `.eval_results/run_<timestamp>/`, which is strictly ignored via `.gitignore`.
 2. **Ephemeral Sandboxing:** Test scenarios never mutate the working tree. Tests execute inside isolated temporary directories (`tempfile.TemporaryDirectory`).
 3. **Dual-Tier Grading:**
-   - **Tier 1 (Deterministic Engine):** Sub-second assertions on string containment, regular expressions, forbidden token lists, and unified diff line preservation.
+   - **Tier 1 (Deterministic Checks):** Sub-second assertions on string containment, regular expressions, forbidden token lists, and unified diff line preservation.
    - **Tier 2 (Semantic LLM-as-a-Judge):** Rubric-based scoring (0.0 to 1.0) evaluating continuity nuances, tone restraint, and sycophancy resistance.
 4. **Anti-Belief-Inertia Verification:** Explicitly benchmarking the agent's ability to update or extinguish historical conditions without dragging obsolete wounds or debts into future chapters.
 
@@ -145,7 +145,7 @@ python aces/aces_runner.py
 ### 5.2 Empirical Results: 1928 Boiler Room Paired Trial
 - **Scenario:** Two factory workers facing an urgent steam valve rupture and a high-stakes loan request.
 - **Baseline Model:** Scored **4.0 / 12.0**. Failed on moralizing closures (*„remény szétáradt a szívükben”*), repetitive emotional reflex explanations (*„nem haragból, csak félelemből”*), and mechanical gesture inflation (*felsóhajtott, bólintott*).
-- **Írói Véna Engine:** Scored **12.0 / 12.0 (100% pass)**. Implemented strict Action Halt termination on the physical wrench turn, Hungarian pre-verbal focus, and tactile/olfactory friction without didactic moralizing.
+- **With Írói Véna:** Scored **12.0 / 12.0 (100% pass)** on the diagnostic rubric. Implemented strict Action Halt termination on the physical wrench turn, Hungarian pre-verbal focus, and tactile/olfactory friction without didactic moralizing.
 - **Quantified Skill Lift:** **+200.0% (+8.0 points)** over the baseline model.
 
 ### 5.3 Git Hygiene & Isolation

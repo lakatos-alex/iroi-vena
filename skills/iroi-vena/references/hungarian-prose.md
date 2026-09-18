@@ -1,7 +1,7 @@
 # Hungarian Literary Prose Craft & Sentence Architecture
 # Magyar prózatechnika és mondatvezetés
 
-This document establishes the syntactical, sensory, and stylistic foundation for high-craft Hungarian literary prose. It provides explicit mechanics to produce vivid, grounded, rhythmically authentic Hungarian text while eliminating generative AI tropes.
+This document provides syntactical, sensory, and stylistic guidelines for writing grounded Hungarian prose. It offers practical techniques for sentence rhythm, topic-focus positioning, and sensory detail to reduce common model mannerisms.
 
 ---
 
@@ -85,7 +85,7 @@ Hungarian carries atmospheric weight and physical texture through **expressive v
 - **Prefix Directional Vectors:** *rádermed* (staring frozen at an object), *beledermed* (cold penetrating to the bone), *eldermed* (numbness, loss of vital function).
 
 ### Deep Sensory Modalities (Beyond Visual Clichés)
-Sterile prose describes only colors and forms. High-craft prose engages:
+Grounded prose moves beyond simple visual description to engage multiple senses:
 1. **Tactile & Thermal:** posztó nehezedése a vállon; fagyos vas tapadása a tenyér nedvességéhez; hideg huzat szúrása nyitott gallérnál.
 2. **Auditory & Acoustic Space:** petróleumkanóc sercegése; gerendák tompa, száraz pattanása; csend mint feszült akusztikus tér.
 3. **Olfactory & Taste:** avas gépzsír, fanyar fűrészpor, rézgálic fémes íze a nyelven.

@@ -3,7 +3,7 @@
   "name": "iroi-vena",
   "displayName": "Írói Véna",
   "version": "1.2.0",
-  "description": "High-craft Hungarian literary prose, syntax, dialogue dynamics, genre adaptation, and AI-native persistent memory scaffolding for agents.",
+  "description": "Hungarian prose craft, syntax, dialogue dynamics, genre adaptation, and file-based story continuity for agents.",
   "author": "Alex Lakatos (https://lakatosalex.hu)",
   "license": "MIT",
   "tags": [

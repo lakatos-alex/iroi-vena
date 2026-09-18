@@ -93,7 +93,7 @@ AI models have a notorious reflex to invent cliché, overly didactic, or abstrac
 - **Thematic didacticism / melodrama:** *„A remény hajnala”*, *„Keserű könnyek között”*, *„Egyenlő lelkek szövetsége”*.
 - **Empty grand abstractions:** *„A végzet útján”*, *„Az új kezdet ígérete”*.
 
-### Master Standard: Concrete & Physical Grounding (Tárgyi és helyzeti fókusz):
+### Recommended Approach: Concrete & Physical Grounding (Tárgyi és helyzeti fókusz):
 Derive chapter and scene titles strictly from a tangible object, an exact physical situation, or a concrete task:
 - *Good Examples:*
   - *„A zöld papír”* (a specific envelope on a library shelf)

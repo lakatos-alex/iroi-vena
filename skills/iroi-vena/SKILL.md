@@ -1,6 +1,6 @@
 ---
 name: iroi-vena
-description: High-craft Hungarian literary prose, syntax, dialogue dynamics, genre adaptation, and AI-native persistent memory scaffolding for agents. Applies when writing fiction, novels, short stories, chapters, or dialogue in Hungarian, maintaining story bibles and handoffs, managing character states, tuning Hungarian sentence rhythm (topic-focus), or ensuring long-form continuity across chats.
+description: Hungarian prose craft, syntax, dialogue dynamics, genre adaptation, and file-based story continuity for agents. Applies when writing fiction, novels, short stories, chapters, or dialogue in Hungarian, maintaining story bibles and handoffs, managing character states, tuning Hungarian sentence rhythm (topic-focus), or tracking long-form continuity across chats.
 license: MIT
 metadata:
   author: Alex Lakatos
@@ -15,9 +15,9 @@ tags:
   - continuity
 ---
 
-# Írói Véna — High-Craft Hungarian Literary Engine
+# Írói Véna — Hungarian Fiction Writing & Continuity Guide
 
-A complete, production-grade craft and memory system for generating, revising, and maintaining high-literary-quality Hungarian prose across genres. Eliminates typical generative AI weaknesses (adjective stacking, didactic endings, melodramatic explanations, gesture inflation, and anglicized sentence structure) while providing an **AI-native persistent memory scaffolding** (Story Bible, Current State, and Handoff protocols) to ensure flaw-free serial continuity across ephemeral chats.
+A craft guide and memory workflow for drafting, revising, and maintaining continuity in Hungarian fiction. Helps curb common model habits (such as anglicized word order, stacked adjectives, overexplained emotions, and repetitive gestures) while providing practical, file-based memory conventions (Story Bible, Current State, and Handoff notes) to support consistent serial storytelling across sessions.
 
 ---
 
