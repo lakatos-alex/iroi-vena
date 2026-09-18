@@ -1,0 +1,31 @@
+{
+  "name": "iroi-vena",
+  "version": "1.1.0",
+  "description": "Kézműves magyar prózatechnika, dramaturgia és AI-natív perzisztens emlékezet regényíróknak. High-craft Hungarian literary prose, syntax, dialogue dynamics, and serial continuity for AI agents.",
+  "keywords": [
+    "writing",
+    "creative-writing",
+    "hungarian",
+    "prose",
+    "fiction",
+    "storytelling",
+    "magyar",
+    "irodalom",
+    "persistent-memory",
+    "story-bible",
+    "cursor-skill",
+    "agent-skill"
+  ],
+  "author": "Alex Lakatos <lakatos.alex@gmail.com> (https://lakatosalex.hu)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lakatos-alex/iroi-vena.git"
+  },
+  "skills": {
+    "iroi-vena": {
+      "path": "SKILL.md",
+      "description": "High-craft Hungarian literary prose, syntax, dialogue dynamics, genre adaptation, and AI-native persistent memory scaffolding for agents."
+    }
+  }
+}

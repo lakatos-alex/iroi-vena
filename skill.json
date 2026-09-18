@@ -1,0 +1,28 @@
+{
+  "$schema": "https://skills.sh/schema/v1.json",
+  "name": "iroi-vena",
+  "displayName": "Írói Véna",
+  "version": "1.1.0",
+  "description": "High-craft Hungarian literary prose, syntax, dialogue dynamics, genre adaptation, and AI-native persistent memory scaffolding for agents.",
+  "author": "Alex Lakatos (https://lakatosalex.hu)",
+  "license": "MIT",
+  "tags": [
+    "creative-writing",
+    "hungarian",
+    "prose",
+    "fiction",
+    "storytelling",
+    "persistent-memory",
+    "continuity"
+  ],
+  "entrypoint": "SKILL.md",
+  "references": [
+    "references/persistent-memory.md",
+    "references/hungarian-prose.md",
+    "references/hungarian-typography.md",
+    "references/scene-craft.md",
+    "references/character-and-trust.md",
+    "references/continuity-and-knowledge.md",
+    "references/genre-profiles.md"
+  ]
+}
