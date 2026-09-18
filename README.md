@@ -19,7 +19,7 @@ Aki próbált már regényt, fejezetet vagy akár csak egy hosszabb párbeszéde
 
 Ez a projekt nem elméleti kísérlet. Saját tapasztalatból indult: regényt akartam írni, de a sima csevegésekben a modellek pár fejezet után menthetetlenül szétcsúsztak. Ekkor kezdtem el rendszert építeni köré: Git-verziókezelést, fejezetről fejezetre átadott állapotfájlokat, a kánont rögzítő jegyzeteket és szigorú műhelyszabályokat. Több százezer leírt szó és folyamatos kísérletezés után ebből a gyakorlatból állt össze a mostani keretrendszer.
 
-Az **Írói Véna** ennek a munkának a letisztult, nyílt forráskódú változata: **igényes magyar prózatechnika és megbízható, több fejezeten át tartó memóriakezelés ötvözete**.
+Az **Írói Véna** ezt a gyakorlatot adja közre: természetesebb magyar mondatvezetés, kevesebb AI-modorosság és megbízható memóriakezelés a fejezetek között.
 
 ---
 
