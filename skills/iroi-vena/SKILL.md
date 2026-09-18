@@ -58,7 +58,7 @@ These procedural constraints override default LLM generation tendencies:
 8. **Mandatory Memory Flush:**
    Never conclude a drafting or revision session without updating the persistent memory records (`${workspaceRoot}/docs/HANDOFF.md`, and `docs/STORY_BIBLE.md` when canon facts change). A chapter is not done until the state is recorded.
 9. **The Tangible Title Rule (Kézzelfogható címadás szabálya):**
-   Never generate abstract, didactic, or relative-clause titles (*„Aki…”, „Ami…”, „A ház, amely…”*, *„A megújuló remény”*). Chapter and scene titles must derive strictly from a tangible physical object, a concrete location, or an observable physical condition (e.g. *„A zöld papír”*, *„Szombat a hó mögött”*, *„A sárgaréz manométer”*).
+   Never generate abstract, didactic, or relative-clause titles (*„Aki…”, „Ami…”, „A ház, amely…”*, *„A megújuló remény”*). Chapter and scene titles must derive strictly from a tangible physical object, a concrete location, or an observable physical condition (e.g. *„A kék mappa”*, *„A hibás relé”*, *„A zátony felőli szél”*, *„Két vödör forró víz”*).
 
 ---
 

@@ -24,16 +24,16 @@ Trust is not a binary switch („they trust each other” / „they don't”). I
 ## 2. Care as Labor vs. Care as Control
 ## Gondoskodás mint munka vs. Gondoskodás mint irányítás
 
-A central ethical and emotional dynamic in character relationships is the line between genuine protection and covert control:
+A recurring interpersonal dynamic across any close relationship—whether between comrades, partners, family members, or mentors—is the line between genuine support and covert control:
 
 - **Care as Actionable Labor:**
   - Who notices exhaustion before it is announced?
   - Who takes on the dirty, dangerous, or unglamorous tasks?
-  - Genuine care carries a **real cost**: time, energy, sacrifice, or personal risk.
+  - Genuine support carries a **real cost**: time, energy, sacrifice, or personal risk.
 - **When Care Becomes Control:**
   - Deciding for another person without their consent under the guise of „protecting” them.
   - Converting assistance into an emotional debt (*„After all I've done for you...”*).
-  - Authentic partnership honors the other person's right to take calculated risks and make independent mistakes.
+  - Authentic relationships (alliances, partnerships, or mentorships) honor the other person's right to take calculated risks, maintain privacy, and make independent choices.
 
 ---
 

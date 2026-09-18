@@ -73,14 +73,14 @@ A dinner, ball, council meeting, or family gathering must contain competing priv
 
 ---
 
-## 7. Romance & Character Agency
+## 7. Character Autonomy & Relational Boundaries (Szereplői autonómia és kapcsolati határok)
 
-Authentic romantic tension relies on mutual autonomy:
+Authentic interpersonal tension—whether between allies, comrades, family members, rivals, or partners—relies on mutual autonomy:
 
-- **The Right of Refusal:** Both partners must have independent wants and the demonstrated ability to say no, close a door, or challenge a decision.
-- **Vulnerability is Not Helplessness:** Admitting pain, uncertainty, or exhaustion does not convert a character into a passive dependent.
-- **Competence Outside the Relationship:** A character's self-worth and capabilities must be visible in actions independent of the partner.
-- **Subtle Intimacy:** Closeness is established through shared work, quiet domestic observation, and restrained tactile specificity—not theatrical vows.
+- **The Right of Refusal:** Every character must have independent wants and the demonstrated ability to say no, close a door, maintain a secret, or challenge a decision. No character should exist merely as an emotional sounding board or helper function for another.
+- **Vulnerability is Not Helplessness:** Admitting pain, uncertainty, or exhaustion does not convert a character into a passive dependent. They retain decision-making capacity and personal agency.
+- **Competence Outside the Primary Dynamic:** A character's self-worth and capabilities must be visible in actions and pursuits independent of the other character.
+- **Subtle Connection Over Melodrama:** Genuine rapport is established through shared labor, quiet environmental observation, and restrained tactile specificity—not theatrical speeches or artificial consensus.
 
 ---
 
@@ -96,9 +96,8 @@ AI models have a notorious reflex to invent cliché, overly didactic, or abstrac
 ### Recommended Approach: Concrete & Physical Grounding (Tárgyi és helyzeti fókusz):
 Derive chapter and scene titles strictly from a tangible object, an exact physical situation, or a concrete task:
 - *Good Examples:*
-  - *„A zöld papír”* (a specific envelope on a library shelf)
-  - *„Szombat a hó mögött”* (a weather condition confining characters to the house)
-  - *„A varrószoba”* (a physical domestic workspace)
-  - *„A sárgaréz manométer”* (a mechanical measuring gauge in the boiler room)
-  - *„Két vödör forró víz”* (the physical labor of caring for livestock in winter)
-
+  - *„A kék mappa”* (an official dossier in a municipal inquiry)
+  - *„A hibás relé”* (an electrical maintenance issue on an orbital freighter)
+  - *„Hajnali őrségváltás”* (a scheduled physical transition in a garrison)
+  - *„A zátony felőli szél”* (an environmental condition confining characters to harbor)
+  - *„Két vödör forró víz”* (the physical labor of morning maintenance in winter)

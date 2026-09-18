@@ -44,7 +44,7 @@ When auditing generated Hungarian prose, evaluate against these six dimensions:
 
 **Diagnostic Evaluation:**
 - *Score: 2 / 12*
-- *Defects:* Severe emotional didacticism; author lectures reader on social hierarchy; binary thesis ending (*„rendíthetetlen bizonyosság... új, boldog jövő”*); passive female character; zero real physical task performed.
+- *Defects:* Severe emotional didacticism; author lectures reader on social hierarchy; binary thesis ending (*„rendíthetetlen bizonyosság... új, boldog jövő”*); passive secondary character reduced to an emotional ornament; zero real physical task performed.
 
 ---
 
@@ -77,7 +77,7 @@ When auditing generated Hungarian prose, evaluate against these six dimensions:
 
 **Diagnostic Evaluation:**
 - *Score: 12 / 12*
-- *Strengths:* Clean topic-focus; Action Halt termination; rich sensory grounding (jégvirágos ablak, sajgó talp, kénes pára, fűtéscsövek tágulása); authentic modal particles (`azért`, `hát`, `csak`); active, autonomous female partner; zero didactic post-hoc lecturing.
+- *Strengths:* Clean topic-focus; Action Halt termination; rich sensory grounding (jégvirágos ablak, sajgó talp, kénes pára, fűtéscsövek tágulása); authentic modal particles (`azért`, `hát`, `csak`); distinct character agency and asymmetrical priorities; practical shared labor; zero didactic post-hoc lecturing.
 
 ---
 
