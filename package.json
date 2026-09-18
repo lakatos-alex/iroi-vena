@@ -27,5 +27,12 @@
       "path": "skills/iroi-vena/SKILL.md",
       "description": "High-craft Hungarian literary prose, syntax, dialogue dynamics, genre adaptation, and AI-native persistent memory scaffolding for agents."
     }
-  }
+  },
+  "files": [
+    "skills",
+    "skill.json",
+    "README.md",
+    "LICENSE",
+    "ACKNOWLEDGMENTS.md"
+  ]
 }

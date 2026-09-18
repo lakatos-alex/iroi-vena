@@ -198,7 +198,7 @@ my-novel-workspace/
 ├── chapters/
 │   ├── ch01.md
 │   └── ch02.md
-└── .cursor/skills/iroi-vena/   <- Installed skill (Read-Only)
+└── .agents/skills/iroi-vena/   <- Installed skill (Read-Only, or .cursor/skills/iroi-vena/)
 ```
 
 #### Configuration B: Out-of-Repo External Vault (Obsidian / Centralized)

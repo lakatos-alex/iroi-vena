@@ -1,6 +1,10 @@
 ---
 name: iroi-vena
 description: High-craft Hungarian literary prose, syntax, dialogue dynamics, genre adaptation, and AI-native persistent memory scaffolding for agents. Applies when writing fiction, novels, short stories, chapters, or dialogue in Hungarian, maintaining story bibles and handoffs, managing character states, tuning Hungarian sentence rhythm (topic-focus), or ensuring long-form continuity across chats.
+license: MIT
+metadata:
+  author: Alex Lakatos
+  version: "1.2.0"
 tags:
   - writing
   - creative-writing
