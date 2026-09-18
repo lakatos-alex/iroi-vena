@@ -17,9 +17,9 @@ Aki próbált már regényt, fejezetet vagy akár csak egy hosszabb párbeszéde
 - **A kényszeres szentimentalizmus:** A szereplők folyamatosan tikkelnek (*felsóhajtanak, bólintanak, összehúzzák a szemöldöküket*), a narrátor pedig képtelen megállni a cselekvésnél: minden mozdulat után elmagyarázza, mit kell érezni, és a jelenet végén didaktikus kiselőadást tart a szerelem, a remény és az emberi lélek nagyságáról.
 - **A memóriasodródás (Context Drift):** A harmadik fejezetre az AI elfelejti a tegnap szerzett sebeket, a kimondott titkokat, és ha két szereplő összevész, három bekezdés múlva reflexből kibékíti őket, megölve minden valódi feszültséget.
 
-Ez a projekt nem elméleti laborban született. Saját, efemer csevegésekből indult: írni akartam, de a modellek folyamatosan elcsúsztak. Ekkor kezdtem el „projectifikálni” az egészet: Git-verziókezelés, fejezetműhely, Markdown-alapú történetbibliák, tudásháló-nyilvántartás és szigorú negatív kényszerek. Hosszú, több százezer leírt és átszerkesztett szóból álló regényfolyamok és szerializált történetek során a módszertan lassan hógolyóvá nőtte ki magát.
+Ez a projekt nem elméleti kísérlet. Saját tapasztalatból indult: regényt akartam írni, de a sima csevegésekben a modellek pár fejezet után menthetetlenül szétcsúsztak. Ekkor kezdtem el rendszert építeni köré: Git-verziókezelést, fejezetről fejezetre átadott állapotfájlokat, a kánont rögzítő jegyzeteket és szigorú műhelyszabályokat. Több százezer leírt szó és folyamatos kísérletezés után ebből a gyakorlatból állt össze a mostani keretrendszer.
 
-Az **Írói Véna** ennek a kísérletnek a letisztult, általánosított, nyílt forráskódú gyümölcse: **a legmagasabb szintű magyar irodalmi kézművesség és az AI-natív perzisztens emlékezet ötvözete**.
+Az **Írói Véna** ennek a munkának a letisztult, nyílt forráskódú változata: **igényes magyar prózatechnika és megbízható, több fejezeten át tartó memóriakezelés ötvözete**.
 
 ---
 
