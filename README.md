@@ -44,28 +44,44 @@ Elvetjük a Cline-féle monolitikus 7-fájlos Memory Bankot, amely súlyos token
 - **Tier 1 — Invariáns Kánon (`docs/STORY_BIBLE.md`):** A világ fizikai törvényei, karakterdossziék, a bizalom 4 rétege és az episztemikus tudásháló (ki mit tud / hisz tévesen).
 - **Tier 2 — Dinamikus Állapot-Staféta (`docs/HANDOFF.md`):** Egyetlen szigorúan kötött terjedelmű (< 1000 szó), YAML-frontmattes átadási fájl a pillanatnyi fizikai korlátokról, birtokolt tárgyakról és a következő 3 konkrét lépésről.
 - **Anti-Belief-Inertia & Invalidation:** Explicit `[SUPERSEDED]` jelölések és kötelező lezárási mentés (Memory Flush Hook) a múltbeli sebek és állapotok túlracionalizálása ellen.
+- **Workspace-Izoláció és Frissítésvédelem:** A memóriafájlok (`docs/HANDOFF.md`, `docs/STORY_BIBLE.md`) kizárólag az író saját regénykönyvtárában jönnek létre az első futtatáskor a mellékelt sablonokból (`templates/*.template.md`). A skill frissítése (`npx skills update`) így garantáltan soha nem írja felül a történeted állapotát.
 
 ---
 
-## Telepítés
+## Telepítés és Munkafolyamat (Hol írjam a regényt?)
 
-### A hivatalos `skills` CLI segítségével:
+> [!IMPORTANT]
+> **Ez a repó egy ESZKÖZKÉSZLET (Skill / Motor), NEM maga a regényed könyvtára!**
+> Ha klónozod ezt a repót (`git clone`), azt csak akkor tedd, ha magát az Írói Véna motort, a prózatechnikai szabályokat vagy a tesztkörnyezetet kívánod fejleszteni.
+> **Soha ne ebben a repóban kezdj el regényt írni!** Ha ide írod a fejezeteidet, a későbbi `git pull origin main` parancsok vagy motorfrissítések konfliktust okozhatnak.
 
-```bash
-# Telepítés Cursor, Codex vagy Claude Code alá:
-npx skills add lakatos-alex/iroi-vena --skill iroi-vena
-```
+### A helyes regényírói munkafolyamat:
 
-### Manuális integráció:
-Másold be a könyvtárat a projekted `.cursor/skills/iroi-vena/` vagy `.agents/skills/iroi-vena/` mappájába.
+1. **Hozz létre egy saját, független projektet a könyvednek:**
+   ```bash
+   mkdir a-hollok-varosa
+   cd a-hollok-varosa
+   git init
+   ```
+2. **Telepítsd be az Írói Vénát skillként a regényed alá:**
+   - A hivatalos `skills` CLI segítségével (Cursor, Codex, Claude Code):
+     ```bash
+     npx skills add lakatos-alex/iroi-vena --skill iroi-vena
+     ```
+   - Vagy manuálisan másold be a könyvtárat a projekted `.cursor/skills/iroi-vena/` vagy `.agents/skills/iroi-vena/` mappájába.
+3. **Kezdj el dolgozni az ágenssel a saját projektedben:**
+   - Az ágens az első indításkor (Bootstrap Hook) automatikusan létrehozza a `docs/HANDOFF.md` és `docs/STORY_BIBLE.md` fájlokat a regényed gyökerében a skill sablonjaiból (`templates/*.template.md`).
+   - A könyved és az emlékezete a saját git verziókezelésed alatt fejlődik, miközben a skillt bármikor frissítheted anélkül, hogy a történetállapot sérülne.
 
 ---
 
 ## A Modulok Felépítése
 
-| Fájl | Témakör |
+| Fájl / Mappa | Témakör |
 | :--- | :--- |
 | **[SKILL.md](SKILL.md)** | A központi router, negatív kényszerek és a 4-fázisú munkafolyamat (English-pivoted). |
+| **[templates/HANDOFF.template.md](templates/HANDOFF.template.md)** | Azonnal inicializálható dinamikus staféta sablon (YAML frontmatterrel). |
+| **[templates/STORY_BIBLE.template.md](templates/STORY_BIBLE.template.md)** | Kánon történetbiblia és bizalmi mátrix sablon. |
 | **[persistent-memory.md](references/persistent-memory.md)** | Kétszintű perzisztens memóriaprotokoll, YAML-séma, anti-belief-inertia (angol specifikáció). |
 | **[hungarian-prose.md](references/hungarian-prose.md)** | Topik–fókusz mondattan, igekötők, névmástakarékosság, mélyérzékelés. |
 | **[hungarian-typography.md](references/hungarian-typography.md)** | Párbeszéd-gondolatjelek, aszimmetrikus megszólítások, SMS és cset-formátum. |

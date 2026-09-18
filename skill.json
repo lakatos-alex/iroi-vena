@@ -2,7 +2,7 @@
   "$schema": "https://skills.sh/schema/v1.json",
   "name": "iroi-vena",
   "displayName": "Írói Véna",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "High-craft Hungarian literary prose, syntax, dialogue dynamics, genre adaptation, and AI-native persistent memory scaffolding for agents.",
   "author": "Alex Lakatos (https://lakatosalex.hu)",
   "license": "MIT",
