@@ -15,14 +15,14 @@
     "persistent-memory",
     "continuity"
   ],
-  "entrypoint": "SKILL.md",
+  "entrypoint": "skills/iroi-vena/SKILL.md",
   "references": [
-    "references/persistent-memory.md",
-    "references/hungarian-prose.md",
-    "references/hungarian-typography.md",
-    "references/scene-craft.md",
-    "references/character-and-trust.md",
-    "references/continuity-and-knowledge.md",
-    "references/genre-profiles.md"
+    "skills/iroi-vena/references/persistent-memory.md",
+    "skills/iroi-vena/references/hungarian-prose.md",
+    "skills/iroi-vena/references/hungarian-typography.md",
+    "skills/iroi-vena/references/scene-craft.md",
+    "skills/iroi-vena/references/character-and-trust.md",
+    "skills/iroi-vena/references/continuity-and-knowledge.md",
+    "skills/iroi-vena/references/genre-profiles.md"
   ]
 }
