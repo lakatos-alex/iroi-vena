@@ -36,8 +36,9 @@ In Hungarian literary prose, dialogue is opened with an en-dash (`–`), followe
 4. **Divided Sentence (Közbevetés egyetlen mondatban):**
    If the speech tag interrupts a single clause, the continuation remains lowercase:
    - *Correct:* `– A csomagot – mondta Nóra – még ma este fel kell adni.`
-   If the grammar requires a comma at the interruption point, the comma is placed after the closing dash:
-   - *Correct:* `– Bár hideg van, – tette hozzá Áron, – a szobában még meleg a kályha.`
+   If the grammar requires a comma at the interruption point (e.g. clause boundary), the comma is placed strictly after the closing second dash (AkH. 260):
+   - *Correct:* `– Bár hideg van – tette hozzá Áron –, a szobában még meleg a kályha.`
+   - *Incorrect:* `– Bár hideg van, – tette hozzá Áron, – a szobában még meleg a kályha.`
 5. **Direct Speech Interruption (Megszakítás):**
    When a speaker is cut off mid-word or mid-sentence, use an unspaced dash without a period:
    - *Correct:* `– Ha legalább egyszer megpróbálnád megérteni, hogy nem azért mentem–`
