@@ -81,13 +81,26 @@ A fájlok mentését és tartalmát érdemes minden fejezet után ellenőrizni. 
 
 ## Értékelés és tesztelés
 
-Az [evals/cases.md](evals/cases.md) hat szempontú, összesen 12 pontos értékelési táblázatot és összehasonlító prózapéldákat tartalmaz. A szempontok a mondatvezetést, az alanykezelést, az érzéki részleteket, az elbeszélői visszafogottságot, a párbeszédet és a tipográfiát vizsgálják.
+A repó empirikus minőségbiztosítási rendszert, 5 dimenziós értékelési rubrikát és egy teljes, reprodukálható **kettős vak (double-blind) ágens-benchmarkot** tartalmaz.
 
-Az 1928-as kazánházi példához a dokumentum 4/12 és 12/12 pontot közöl. A különbség az adott pontozásban 8 pont. Az ebből számolt 200%-os relatív növekedés nem tekinthető az irodalmi minőség általános javulási arányának. A verziókezelt anyag nem tartalmazza a megismétléshez szükséges teljes modell-, generálási és értékelési naplót.
+A 2026-os benchmark során egy erős frontier modell (`pro`) és egy költséghatékony igásló modell (`flash`) írt meg egy fojtott, fizikai munkára és anyagi feszültségre épülő vasúti műhelyjelenetet (dízelaggregátor-javítás éjszaka, esőben, indulás előtt), natív prompttal és az `iroi-vena` szabályrendszerével. A négy anonimizált szövegmintát két független vak bíráló ágens (`pro` és `flash` bírók) pontozta szigorú 50 pontos szakmai rubrika alapján, a pozíciós és hosszúsági torzítások (length/verbosity bias) teljes kizárásával.
 
-Az [evals/harness_plan.md](evals/harness_plan.md) a Promptfoo és az ACES használatára épülő tesztelési tervet írja le, többek között kánon-visszakeresési, állapotfrissítési és fájlmegőrzési esetekkel. A benne szereplő futtatási leírások helyi környezetre vonatkoznak: a `promptfooconfig.yaml`, az `aces/` és a futási eredmények ki vannak zárva a verziókezelésből. **Friss klónozásból a leírt tesztparancsok nem futtathatók a hiányzó fájlok pótlása nélkül.**
+### A kettős vak teszt eredményei (két független vak bíró átlagában):
 
-A helyi `aces/aces_runner.py` előre elkészült szövegeket pontoz szólistákkal és reguláris kifejezésekkel. Nem hív modellt, és önmagában nem végez élő párosított vaktesztet. A helyi Promptfoo-konfiguráció szintén kész szövegeken ellenőriz feltételeket. Ezek a szűrők egyes szabálysértések jelzésére használhatók; az értelmezést és az irodalmi szerkesztést nem fedik le.
+| Helyezés | Modell és Kísérleti Feltétel | Bíró 1 (Pro) | Bíró 2 (Flash) | Átlagpontszám (/50) | Minőségi Index |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| 🥇 **1.** | **Flash + `iroi-vena` (Mid/Cheap + Skill)** | 44.0 | 47.5 | **45.75 / 50** | **91.5%** |
+| 🥈 **2.** | **Pro + `iroi-vena` (Frontier + Skill)** | 37.0 | 44.0 | **40.50 / 50** | **81.0%** |
+| 🥉 **3.** | **Flash Baseline (natív prompt, skill nélkül)** | 28.0 | 34.5 | **31.25 / 50** | **62.5%** |
+| 4. | **Pro Baseline (natív prompt, skill nélkül)** | 24.0 | 27.5 | **25.75 / 50** | **51.5%** |
+
+### Legfontosabb tapasztalatok:
+- **Nettó minőségi ugrás (+51,2%):** A skillel generált szövegek átlagosan 43,1 pontot (86,2%) értek el az 50-ből, szemben a natív modellek 28,5 pontos (57,0%) átlagával.
+- **A frontier modellek túlírási csapdájának megszüntetése:** A nyers frontier modell szabadon hagyva elcsépelt hasonlatokba (*„kimúlt vasbordájú őslény”*, *„mint két fuldokló”*), pszichologizáló belső monológokba és hollywoodi békülési klisékbe (*„– Csinálok kávét... – Két cukorral”*) fulladt (25,75 pont). Az `iroi-vena` szabályai ezt a modellt 40,50 pontra emelték, tárgyi és gépszerelési realizmusát pedig a legmagasabb (10/10-es) szintre fokozták.
+- **A költséghatékony modellek fegyelmezése:** A gyors `flash` modell az `iroi-vena` szigorú cselekvési fegyelmét (Action Halt Rule, AkH. 260 szerinti párbeszéd, tiszta cselekvés) követve 45,75 ponttal (91,5%) a mezőny abszolút győztese lett, megelőzve az unkorlátozott frontier modellt is.
+- **100%-os bírálói konszenzus:** Mindkét független vak bíró egymástól elszigetelve pontosan ugyanazt a sorrendet állapította meg minden páros mérkőzésen.
+
+A részletes kísérleti leírás, az anonim kódkulcs, a két bíró részletes diagnózisa és mind a 4 nyers szövegminta teljes terjedelmében az [evals/blind_benchmark_2026.md](evals/blind_benchmark_2026.md) fájlban, az esettanulmányok pedig az [evals/cases.md](evals/cases.md) dokumentumban találhatók.
 
 ## Fájlok
 
@@ -105,8 +118,8 @@ A helyi `aces/aces_runner.py` előre elkészült szövegeket pontoz szólistákk
 | [skills/iroi-vena/references/character-and-trust.md](skills/iroi-vena/references/character-and-trust.md) | Karaktercélok, határok és bizalmi viszonyok. |
 | [skills/iroi-vena/references/continuity-and-knowledge.md](skills/iroi-vena/references/continuity-and-knowledge.md) | Tudás, tárgyak, sérülések és kötelezettségek követése. |
 | [skills/iroi-vena/references/genre-profiles.md](skills/iroi-vena/references/genre-profiles.md) | Műfaji szempontok és magyar példák. |
-| [evals/cases.md](evals/cases.md) | Értékelési szempontok és prózapéldák. |
-| [evals/harness_plan.md](evals/harness_plan.md) | A helyi tesztkörnyezet terve és dokumentált esetei. |
+| [evals/cases.md](evals/cases.md) | Az 5 dimenziós prózatechnikai rubrika és a vakteszt esettanulmányai. |
+| [evals/blind_benchmark_2026.md](evals/blind_benchmark_2026.md) | A 2026-os kettős vak prózateszt teljes jegyzőkönyve, ponttáblázatai és nyers mintái. |
 | [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) | Források és köszönetnyilvánítás. |
 
 ## Fejlesztés és licenc

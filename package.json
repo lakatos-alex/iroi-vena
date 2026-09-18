@@ -28,6 +28,7 @@
   },
   "files": [
     "skills/**/*",
+    "evals/**/*",
     "skill.json",
     "README.md",
     "LICENSE",

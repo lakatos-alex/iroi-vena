@@ -25,11 +25,3 @@ docs/*.md
 !docs/README.md
 .story/
 
-# Evaluation environments & tooling (Promptfoo & ACES harness)
-promptfoo.yaml
-promptfooconfig.*
-.promptfoo/
-promptfoo/
-aces/
-aces_eval/
-
