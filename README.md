@@ -19,7 +19,7 @@ Saját regényírás közben két visszatérő problémával találkoztam: a mod
 
 Az egyik központi szabály az „Állj meg a cselekvésnél” (Action Halt Rule): ha egy mozdulat már hordozza a jelenet érzelmi jelentését, ne kövesse azt magyarázó tanulság. A skill több visszatérő fordulatot kifejezetten tilt, és a tárgyi részletekre épülő, visszafogott elbeszélést részesíti előnyben.
 
-A belépési pont a [skills/iroi-vena/SKILL.md](skills/iroi-vena/SKILL.md). Az ágens innen választja ki és olvassa be a feladathoz szükséges referenciákat. Az utasítások nagyrészt angolul íródtak, magyar példákkal; a készülő próza nyelve magyar.
+A belépési pont a [skills/iroi-vena/SKILL.md](skills/iroi-vena/SKILL.md). Az ágens innen választja ki és olvassa be a feladathoz szükséges referenciákat. A vezérlési sík (az utasítások és munkafolyamatok) szándékosan angol nyelvű, mivel a mai modellek látens tere és szabálykövetése ezen a nyelven a legfegyelmezettebb; a nyelvi példák, a stilisztikai útmutatók és a készülő próza nyelve pedig magyar.
 
 A csomag Markdown-útmutatókból, sablonokból és leíró metaadatokból áll. A memóriafájlok létrehozását, olvasását és frissítését az ágens végzi az utasítások alapján. Ezekhez nincs külön futó szolgáltatás vagy automatikus ellenőrző program a verziókezelt csomagban.
 
